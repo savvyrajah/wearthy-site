@@ -1,0 +1,705 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Wearthy - Book a Consultation" description="Schedule a consultation with Wearthy to discuss your school playground project. Award-winning team ready to help create nature-inspired play environments.">
+	<header class="header contact-header">
+		<div class="container">
+			<div class="header-content">
+				<div class="logo-container">
+					<div class="logo-circle" aria-hidden="true"></div>
+					<a href="/" class="logo">Wearthy</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main class="contact-main">
+		<section class="hero-section">
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="page-title">Let's Create Something Amazing Together</h1>
+					<p class="page-subtitle">
+						Book a consultation to discuss how we can transform your school's play environment
+						into a space that supports resilience, creativity, and human flourishing.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="container main-container">
+			<div class="content-grid">
+				<aside class="credibility-section">
+					<div class="credibility-card">
+						<h2>Why Choose Wearthy?</h2>
+
+						<div class="credential-item">
+							<div class="credential-icon">★</div>
+							<div class="credential-content">
+								<h3>Award-Winning Design</h3>
+								<p>2021-2023 QLD Play Spaces Winner - 3 consecutive years</p>
+							</div>
+						</div>
+
+						<div class="credential-item">
+							<div class="credential-icon">★</div>
+							<div class="credential-content">
+								<h3>Proven Track Record</h3>
+								<p>100+ playgrounds built, 16,000+ children impacted worldwide</p>
+							</div>
+						</div>
+
+						<div class="credential-item">
+							<div class="credential-icon">★</div>
+							<div class="credential-content">
+								<h3>Expert Leadership</h3>
+								<p>Led by TEDx speaker Lukas Ritson with 10+ years of experience</p>
+							</div>
+						</div>
+
+						<div class="credential-item">
+							<div class="credential-icon">★</div>
+							<div class="credential-content">
+								<h3>Queensland Schools Trust Us</h3>
+								<p>Hillcrest Christian College, All Saints Anglican School, Moreton Bay College, and more</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="testimonials-card">
+						<h2>What Schools Say</h2>
+
+						<div class="testimonial-item">
+							<div class="testimonial-video">
+								<div class="video-wrapper-small">
+									<iframe
+										width="100%"
+										height="100%"
+										src="https://www.youtube.com/embed/Qb1E_PvdkOI"
+										title="Hillcrest College Video Testimonial"
+										frameborder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+										allowfullscreen>
+									</iframe>
+								</div>
+								<p class="video-label">Hillcrest Christian College</p>
+							</div>
+						</div>
+
+						<div class="testimonial-item">
+							<div class="testimonial-video">
+								<div class="video-wrapper-small">
+									<iframe
+										width="100%"
+										height="100%"
+										src="https://www.youtube.com/embed/J7P2YbIFN7Q"
+										title="Moreton Bay College Video Testimonial"
+										frameborder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+										allowfullscreen>
+									</iframe>
+								</div>
+								<p class="video-label">Moreton Bay College</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="values-card">
+						<h2>Our Approach</h2>
+						<ul class="values-list">
+							<li>Nature-inspired design philosophy</li>
+							<li>Focus on building resilience through play</li>
+							<li>Evidence-based developmental approach</li>
+							<li>Full compliance with Australian safety standards</li>
+							<li>Grant application support</li>
+							<li>End-to-end project management</li>
+						</ul>
+					</div>
+				</aside>
+
+				<section class="form-section">
+					<div class="form-container">
+						<h2 class="form-title">Book Your Consultation</h2>
+						<p class="form-description">
+							Fill out the form below and we'll get back to you within 24 hours to schedule
+							a call at a time that works for you.
+						</p>
+
+						<form id="contactForm" class="contact-form">
+							<fieldset class="form-group">
+								<label for="schoolName">School Name *</label>
+								<input type="text" id="schoolName" name="schoolName" required>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="contactName">Your Name *</label>
+								<input type="text" id="contactName" name="contactName" required>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="position">Your Position *</label>
+								<select id="position" name="position" required>
+									<option value="">Select your role</option>
+									<option value="principal">Principal</option>
+									<option value="deputy-principal">Deputy Principal</option>
+									<option value="facilities-manager">Facilities Manager</option>
+									<option value="board-member">Board Member</option>
+									<option value="p&c-member">P&C Committee Member</option>
+									<option value="teacher">Teacher</option>
+									<option value="other">Other</option>
+								</select>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="email">Email Address *</label>
+								<input type="email" id="email" name="email" required>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="phone">Phone Number *</label>
+								<input type="tel" id="phone" name="phone" required>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="projectStage">Where are you in your project journey?</label>
+								<select id="projectStage" name="projectStage">
+									<option value="">Select stage</option>
+									<option value="exploring">Just exploring ideas</option>
+									<option value="budgeting">Budget planning stage</option>
+									<option value="grant-prep">Preparing grant application</option>
+									<option value="ready">Ready to start within 6 months</option>
+									<option value="approved">Budget approved, ready to proceed</option>
+								</select>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="estimatedBudget">Estimated Budget Range</label>
+								<select id="estimatedBudget" name="estimatedBudget">
+									<option value="">Select budget range</option>
+									<option value="under-50k">Under $50,000</option>
+									<option value="50k-100k">$50,000 - $100,000</option>
+									<option value="100k-150k">$100,000 - $150,000</option>
+									<option value="150k-250k">$150,000 - $250,000</option>
+									<option value="over-250k">Over $250,000</option>
+									<option value="unsure">Not sure yet</option>
+								</select>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="ageGroups">Age Groups (select all that apply)</label>
+								<div class="checkbox-group">
+									<div class="checkbox-item">
+										<input type="checkbox" id="early-childhood" name="ageGroups[]" value="early-childhood">
+										<label for="early-childhood">Early Childhood (2-5 years)</label>
+									</div>
+									<div class="checkbox-item">
+										<input type="checkbox" id="primary-junior" name="ageGroups[]" value="primary-junior">
+										<label for="primary-junior">Junior Primary (5-8 years)</label>
+									</div>
+									<div class="checkbox-item">
+										<input type="checkbox" id="primary-middle" name="ageGroups[]" value="primary-middle">
+										<label for="primary-middle">Middle Primary (8-10 years)</label>
+									</div>
+									<div class="checkbox-item">
+										<input type="checkbox" id="primary-upper" name="ageGroups[]" value="primary-upper">
+										<label for="primary-upper">Upper Primary (10-12 years)</label>
+									</div>
+									<div class="checkbox-item">
+										<input type="checkbox" id="secondary" name="ageGroups[]" value="secondary">
+										<label for="secondary">Secondary (12-18 years)</label>
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="preferredTime">Preferred Time for Call</label>
+								<select id="preferredTime" name="preferredTime">
+									<option value="">Select preferred time</option>
+									<option value="morning">Morning (8am - 12pm)</option>
+									<option value="afternoon">Afternoon (12pm - 5pm)</option>
+									<option value="flexible">Flexible</option>
+								</select>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="message">Tell us about your project</label>
+								<textarea
+									id="message"
+									name="message"
+									rows="6"
+									placeholder="Share your vision, challenges, timeline, or any specific questions you have...">
+								</textarea>
+							</fieldset>
+
+							<fieldset class="form-group">
+								<label for="referralSource">How did you hear about us?</label>
+								<select id="referralSource" name="referralSource">
+									<option value="">Select option</option>
+									<option value="email">Email</option>
+									<option value="referral">School referral</option>
+									<option value="website">Website search</option>
+									<option value="social-media">Social media</option>
+									<option value="tedx">TEDx talk</option>
+									<option value="other">Other</option>
+								</select>
+							</fieldset>
+
+							<button type="submit" class="submit-btn">Request Consultation</button>
+
+							<p class="privacy-note">
+								By submitting this form, you agree to be contacted by Wearthy regarding your inquiry.
+								We respect your privacy and will never share your information with third parties.
+							</p>
+						</form>
+					</div>
+				</section>
+			</div>
+
+			<section class="alternate-contact">
+				<h2>Prefer to reach out directly?</h2>
+				<div class="contact-methods">
+					<div class="contact-method">
+						<h3>Email</h3>
+						<p><a href="mailto:hello@wearthy.co">hello@wearthy.co</a></p>
+					</div>
+					<div class="contact-method">
+						<h3>Phone</h3>
+						<p><a href="tel:+61730000000">+61 7 3000 0000</a></p>
+					</div>
+					<div class="contact-method">
+						<h3>Location</h3>
+						<p>Brisbane, Queensland, Australia</p>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>&copy; 2024 Wearthy. The playful beginnings of human flourishing.</p>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const formData = new FormData(this);
+			const data: Record<string, any> = {};
+
+			for (let [key, value] of formData.entries()) {
+				if (key === 'ageGroups[]') {
+					if (!data.ageGroups) data.ageGroups = [];
+					data.ageGroups.push(value);
+				} else {
+					data[key] = value;
+				}
+			}
+
+			console.log('Contact form submission:', data);
+			alert('Thank you! We\'ll be in touch within 24 hours to schedule your consultation.');
+			(this as HTMLFormElement).reset();
+		});
+	</script>
+</BaseLayout>
+
+<style>
+	.contact-header {
+		padding: 40px 0;
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.95) 0%, rgba(139, 119, 101, 0.95) 100%);
+	}
+
+	.logo {
+		color: #faf9f7;
+		text-decoration: none;
+	}
+
+	.hero-section {
+		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
+		padding: 60px 0;
+		text-align: center;
+	}
+
+	.page-title {
+		font-size: 3.5rem;
+		font-weight: 400;
+		color: #5a4a3a;
+		margin-bottom: 20px;
+		line-height: 1.2;
+		font-family: 'Georgia', serif;
+	}
+
+	.page-subtitle {
+		font-size: 1.3rem;
+		color: #6b5b4b;
+		max-width: 700px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.main-container {
+		max-width: 1400px;
+		padding: 80px 20px;
+	}
+
+	.content-grid {
+		display: grid;
+		grid-template-columns: 400px 1fr;
+		gap: 60px;
+		align-items: start;
+	}
+
+	.credibility-section {
+		position: sticky;
+		top: 20px;
+	}
+
+	.credibility-card,
+	.testimonials-card,
+	.values-card {
+		background: white;
+		padding: 35px;
+		border-radius: 12px;
+		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
+		margin-bottom: 30px;
+	}
+
+	.credibility-card h2,
+	.testimonials-card h2,
+	.values-card h2 {
+		font-size: 1.8rem;
+		color: #5a4a3a;
+		margin-bottom: 25px;
+		font-family: 'Georgia', serif;
+		font-weight: 500;
+	}
+
+	.credential-item {
+		display: flex;
+		gap: 15px;
+		margin-bottom: 25px;
+		padding-bottom: 25px;
+		border-bottom: 1px solid #e8dcc6;
+	}
+
+	.credential-item:last-child {
+		border-bottom: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	.credential-icon {
+		width: 35px;
+		height: 35px;
+		background: linear-gradient(135deg, #c17817, #a66614);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-size: 16px;
+		flex-shrink: 0;
+	}
+
+	.credential-content h3 {
+		font-size: 1.1rem;
+		color: #5a4a3a;
+		margin-bottom: 5px;
+		font-weight: 500;
+	}
+
+	.credential-content p {
+		font-size: 0.95rem;
+		color: #6b5b4b;
+		line-height: 1.5;
+	}
+
+	.testimonial-item {
+		margin-bottom: 25px;
+	}
+
+	.testimonial-item:last-child {
+		margin-bottom: 0;
+	}
+
+	.video-wrapper-small {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+		border-radius: 8px;
+		margin-bottom: 10px;
+	}
+
+	.video-wrapper-small iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+	}
+
+	.video-label {
+		font-size: 0.9rem;
+		color: #8b7765;
+		text-align: center;
+	}
+
+	.values-list {
+		list-style: none;
+		padding: 0;
+	}
+
+	.values-list li {
+		padding-left: 30px;
+		position: relative;
+		margin-bottom: 12px;
+		color: #6b5b4b;
+		line-height: 1.6;
+	}
+
+	.values-list li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: #b8a690;
+		font-weight: bold;
+	}
+
+	.form-section {
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
+	}
+
+	.form-container {
+		padding: 50px;
+	}
+
+	.form-title {
+		font-size: 2.5rem;
+		color: #5a4a3a;
+		margin-bottom: 15px;
+		font-family: 'Georgia', serif;
+		font-weight: 400;
+	}
+
+	.form-description {
+		color: #6b5b4b;
+		font-size: 1.05rem;
+		line-height: 1.6;
+		margin-bottom: 40px;
+	}
+
+	.contact-form {
+		max-width: 700px;
+	}
+
+	.form-group {
+		margin-bottom: 25px;
+		border: none;
+		padding: 0;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 8px;
+		font-weight: 500;
+		color: #5a4a3a;
+		font-size: 0.95rem;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 14px 16px;
+		border: 2px solid #e8dcc6;
+		border-radius: 6px;
+		font-size: 1rem;
+		transition: all 0.3s ease;
+		background: #faf9f7;
+		color: #5a4a3a;
+		font-family: inherit;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #b8a690;
+		background: white;
+		box-shadow: 0 0 0 3px rgba(184, 166, 144, 0.1);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		line-height: 1.6;
+	}
+
+	.checkbox-group {
+		display: grid;
+		gap: 12px;
+		margin-top: 10px;
+	}
+
+	.checkbox-item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.checkbox-item input[type="checkbox"] {
+		width: auto;
+		margin: 0;
+	}
+
+	.checkbox-item label {
+		margin-bottom: 0;
+		font-weight: normal;
+		font-size: 0.95rem;
+		color: #6b5b4b;
+	}
+
+	.submit-btn {
+		width: 100%;
+		background: linear-gradient(135deg, #b8a690 0%, #8b7765 100%);
+		color: white;
+		padding: 18px 35px;
+		border: none;
+		border-radius: 6px;
+		font-size: 1.15rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-family: 'Arial', sans-serif;
+		margin-top: 10px;
+	}
+
+	.submit-btn:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 6px 20px rgba(139, 119, 101, 0.3);
+		background: linear-gradient(135deg, #a69580 0%, #7a6654 100%);
+	}
+
+	.privacy-note {
+		font-size: 0.85rem;
+		color: #8b7765;
+		margin-top: 20px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	.alternate-contact {
+		margin-top: 80px;
+		padding: 60px;
+		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
+		border-radius: 12px;
+		text-align: center;
+	}
+
+	.alternate-contact h2 {
+		font-size: 2.3rem;
+		color: #5a4a3a;
+		margin-bottom: 40px;
+		font-family: 'Georgia', serif;
+		font-weight: 400;
+	}
+
+	.contact-methods {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.contact-method h3 {
+		font-size: 1.3rem;
+		color: #5a4a3a;
+		margin-bottom: 10px;
+		font-family: 'Georgia', serif;
+		font-weight: 500;
+	}
+
+	.contact-method p {
+		color: #6b5b4b;
+		font-size: 1.05rem;
+	}
+
+	.contact-method a {
+		color: #8b7765;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+
+	.contact-method a:hover {
+		color: #5a4a3a;
+	}
+
+	.site-footer {
+		background: #5a4a3a;
+		color: rgba(255, 255, 255, 0.8);
+		padding: 40px 0;
+		text-align: center;
+		font-size: 0.95rem;
+	}
+
+	@media (max-width: 1200px) {
+		.content-grid {
+			grid-template-columns: 350px 1fr;
+			gap: 40px;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.content-grid {
+			grid-template-columns: 1fr;
+			gap: 50px;
+		}
+
+		.credibility-section {
+			position: relative;
+			top: 0;
+		}
+
+		.credibility-card,
+		.testimonials-card,
+		.values-card {
+			margin-bottom: 25px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.page-title {
+			font-size: 2.5rem;
+		}
+
+		.page-subtitle {
+			font-size: 1.1rem;
+		}
+
+		.form-container {
+			padding: 35px 25px;
+		}
+
+		.form-title {
+			font-size: 2rem;
+		}
+
+		.contact-methods {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+
+		.alternate-contact {
+			padding: 40px 30px;
+		}
+
+		.alternate-contact h2 {
+			font-size: 1.9rem;
+		}
+	}
+</style>

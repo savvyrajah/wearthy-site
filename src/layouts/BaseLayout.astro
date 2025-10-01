@@ -1,0 +1,150 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Award-winning playground design company specializing in nature-inspired educational play environments for schools across Queensland and Australia." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content={Astro.generator}>
+	<title>{title}</title>
+	<meta name="description" content={description}>
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+	<style is:global>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Georgia', 'Times New Roman', serif;
+			line-height: 1.6;
+			color: #5a4a3a;
+			background-color: #faf9f7;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		/* Header */
+		.header {
+			background: linear-gradient(135deg, rgba(90, 74, 58, 0.9) 0%, rgba(139, 119, 101, 0.9) 100%),
+						url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23d4c4b0" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%23b8a690" opacity="0.3"/><circle cx="800" cy="300" r="120" fill="%23a69580" opacity="0.2"/><circle cx="1000" cy="100" r="60" fill="%23c4b4a0" opacity="0.4"/></svg>') center/cover;
+			color: #faf9f7;
+			padding: 80px 0;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.header::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="0.8" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+			opacity: 0.3;
+		}
+
+		.header-content {
+			position: relative;
+			z-index: 2;
+		}
+
+		.logo-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 15px;
+		}
+
+		.logo-circle {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background: radial-gradient(circle at 30% 30%, #f4e6d7, #d4c4b0);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 15px;
+			position: relative;
+		}
+
+		.logo-circle::before {
+			content: '';
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="%235a4a3a" stroke-width="0.5" opacity="0.6"/><circle cx="15" cy="15" r="2" fill="%235a4a3a" opacity="0.4"/><circle cx="25" cy="18" r="1.5" fill="%235a4a3a" opacity="0.3"/><circle cx="18" cy="25" r="1" fill="%235a4a3a" opacity="0.5"/></svg>') center/contain no-repeat;
+		}
+
+		.logo {
+			font-size: 2.8rem;
+			font-weight: 400;
+			letter-spacing: -1px;
+			font-family: 'Georgia', serif;
+		}
+
+		.tagline {
+			font-size: 1rem;
+			opacity: 0.85;
+			margin-bottom: 40px;
+			font-style: italic;
+		}
+
+		/* Buttons */
+		.btn-primary {
+			background: linear-gradient(135deg, #b8a690 0%, #8b7765 100%);
+			color: white;
+			padding: 16px 35px;
+			border: none;
+			border-radius: 6px;
+			font-size: 1.1rem;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-family: 'Arial', sans-serif;
+			text-decoration: none;
+			display: inline-block;
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 6px 20px rgba(139, 119, 101, 0.3);
+			background: linear-gradient(135deg, #a69580 0%, #7a6654 100%);
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			.header {
+				padding: 50px 0;
+			}
+
+			.logo {
+				font-size: 2.2rem;
+			}
+
+			.container {
+				padding: 0 15px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<slot />
+</body>
+</html>
