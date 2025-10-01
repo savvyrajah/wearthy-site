@@ -1,48 +1,847 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="refresh" content="0; url=/forms/site-appraisal">
-	<title>Redirecting to Wearthy Site Appraisal...</title>
-	<style>
-		body {
-			font-family: 'Georgia', 'Times New Roman', serif;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			margin: 0;
-			background-color: #faf9f7;
-			color: #5a4a3a;
+<BaseLayout title="Wearthy - Nature-Inspired Playgrounds for Schools & Early Learning Centres" description="Award-winning playground design company creating nature-inspired play environments for schools and early learning centres across Queensland. 10 years of excellence, 100+ playgrounds built.">
+	<header class="header home-header">
+		<div class="container">
+			<div class="header-content">
+				<div class="logo-container">
+					<div class="logo-circle" aria-hidden="true"></div>
+					<a href="/" class="logo">Wearthy</a>
+				</div>
+				<nav class="main-nav">
+					<a href="/three-pillars">Our Philosophy</a>
+					<a href="/all-saints-case-study">Case Studies</a>
+					<a href="/contact">Contact</a>
+					<a href="/forms/site-appraisal" class="nav-cta">Get Appraisal</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<main class="home-main">
+		<section class="hero">
+			<div class="container">
+				<div class="hero-grid">
+					<div class="hero-content">
+						<h1 class="hero-title">Advocates of Play</h1>
+						<p class="hero-subtitle">Creating natural playgrounds for courageous and resilient children</p>
+						<div class="hero-buttons">
+							<a href="/three-pillars" class="btn-primary">Our Philosophy →</a>
+							<a href="/forms/site-appraisal" class="btn-secondary">Get Free Appraisal →</a>
+						</div>
+					</div>
+					<div class="hero-image">
+						<div class="image-placeholder large">
+							<p>Nature-inspired playground image</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="credibility-banner">
+			<div class="container">
+				<div class="credibility-stats">
+					<div class="cred-stat">
+						<div class="cred-number">10</div>
+						<div class="cred-label">Years Creating<br>Play Environments</div>
+					</div>
+					<div class="cred-stat">
+						<div class="cred-number">100+</div>
+						<div class="cred-label">Playgrounds<br>Built</div>
+					</div>
+					<div class="cred-stat">
+						<div class="cred-number">16,000+</div>
+						<div class="cred-label">Children<br>Impacted</div>
+					</div>
+					<div class="cred-stat">
+						<div class="cred-number">3x</div>
+						<div class="cred-label">QLD Play Spaces<br>Winner</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-section">
+			<div class="container">
+				<div class="about-grid">
+					<div class="about-image">
+						<div class="image-placeholder medium">
+							<p>Lukas Ritson / Team photo</p>
+						</div>
+					</div>
+					<div class="about-content">
+						<h2>We Are Wearthy</h2>
+						<p class="lead">
+							Led by TEDx speaker Lukas Ritson, we empower children through nature-inspired play environments that foster courage, resilience, and human flourishing.
+						</p>
+						<p>
+							All children deserve a happy, memorable and adventurous childhood. For over a decade, we've been creating play spaces that honor this belief—designing environments where children can explore, take appropriate risks, and develop the confidence they need to thrive.
+						</p>
+						<div class="awards-row">
+							<div class="award-badge">
+								<div class="award-year">2021</div>
+								<div class="award-name">People's Choice Winner</div>
+								<div class="award-org">Australian Institute of Landscape Architects</div>
+							</div>
+							<div class="award-badge">
+								<div class="award-year">2022</div>
+								<div class="award-name">Play Spaces Winner</div>
+								<div class="award-org">Queensland</div>
+							</div>
+							<div class="award-badge">
+								<div class="award-year">2023</div>
+								<div class="award-name">Play Spaces Winner</div>
+								<div class="award-org">Queensland</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="values-section">
+			<div class="container">
+				<h2 class="section-title">What We Believe</h2>
+				<div class="values-grid">
+					<div class="value-card">
+						<div class="value-image">
+							<div class="image-placeholder small">
+								<p>Nature-inspired design</p>
+							</div>
+						</div>
+						<h3>Nature-Inspired Design</h3>
+						<p>
+							We create play environments that connect children to nature, using natural materials and organic forms that inspire exploration and imagination.
+						</p>
+						<a href="/three-pillars" class="text-link">Learn More →</a>
+					</div>
+
+					<div class="value-card">
+						<div class="value-image">
+							<div class="image-placeholder small">
+								<p>Courageous play</p>
+							</div>
+						</div>
+						<h3>Courageous Culture</h3>
+						<p>
+							We design challenging play environments that develop independence, confidence, and resilience through healthy risk-taking and problem-solving.
+						</p>
+						<a href="/three-pillars" class="text-link">Learn More →</a>
+					</div>
+
+					<div class="value-card">
+						<div class="value-image">
+							<div class="image-placeholder small">
+								<p>Educational approach</p>
+							</div>
+						</div>
+						<h3>Educational Excellence</h3>
+						<p>
+							Every playground is designed with developmental milestones in mind, supporting learning through play and fostering holistic child development.
+						</p>
+						<a href="/all-saints-case-study" class="text-link">See Our Work →</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="trusted-by-section">
+			<div class="container">
+				<h2 class="section-title">Trusted by Queensland's Leading Schools & Early Learning Centres</h2>
+				<div class="schools-grid">
+					<div class="school-logo">
+						<div class="logo-placeholder">Hillcrest Christian College</div>
+					</div>
+					<div class="school-logo">
+						<div class="logo-placeholder">All Saints Anglican School</div>
+					</div>
+					<div class="school-logo">
+						<div class="logo-placeholder">Moreton Bay College</div>
+					</div>
+					<div class="school-logo">
+						<div class="logo-placeholder">Emanuel College</div>
+					</div>
+					<div class="school-logo">
+						<div class="logo-placeholder">Southport Flexible School</div>
+					</div>
+					<div class="school-logo">
+						<div class="logo-placeholder">Hillcrest Early Learning</div>
+					</div>
+				</div>
+				<div class="testimonial-highlight">
+					<p class="testimonial-quote">
+						"The transformation of our playground has been remarkable. Students are more engaged, more active, and we've seen a real increase in creative play."
+					</p>
+					<p class="testimonial-author">— Principal, All Saints Anglican School</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="educators-section">
+			<div class="container">
+				<div class="educators-grid">
+					<div class="educators-content">
+						<h2>Empowering Educators</h2>
+						<p class="lead">
+							We partner with schools and early learning centres to create integrated networks of play and learning.
+						</p>
+						<p>
+							Our mission extends beyond building playgrounds—we're committed to supporting educators in creating environments where children can develop resilience, courage, and a love of learning through nature-based play.
+						</p>
+						<div class="educator-features">
+							<div class="feature-item">
+								<span class="feature-icon">✓</span>
+								<span>Grant application support</span>
+							</div>
+							<div class="feature-item">
+								<span class="feature-icon">✓</span>
+								<span>Compliance with Australian safety standards</span>
+							</div>
+							<div class="feature-item">
+								<span class="feature-icon">✓</span>
+								<span>Budget planning assistance</span>
+							</div>
+							<div class="feature-item">
+								<span class="feature-icon">✓</span>
+								<span>Ongoing consultation and support</span>
+							</div>
+						</div>
+						<div class="cta-row">
+							<a href="/forms/site-appraisal" class="btn-primary">Get Complimentary Appraisal</a>
+							<a href="/contact" class="btn-secondary">Book a Consultation</a>
+						</div>
+					</div>
+					<div class="educators-media">
+						<div class="image-placeholder medium">
+							<p>Educators/children playing</p>
+						</div>
+						<div class="tedx-badge">
+							<p><strong>Featured:</strong> TEDxUQ Talk<br>"Raising Resilient Children in a Fear-Based World"</p>
+							<a href="/three-pillars" class="watch-link">Watch Now →</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-final">
+			<div class="container">
+				<div class="cta-content">
+					<h2>Ready to Transform Your Outdoor Spaces?</h2>
+					<p>Get a complimentary, no-obligation appraisal with ideas and budget estimates for your 2026 planning.</p>
+					<a href="/forms/site-appraisal" class="btn-primary btn-large">Request Your Free Appraisal</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-grid">
+				<div class="footer-brand">
+					<div class="footer-logo">
+						<div class="logo-circle" aria-hidden="true"></div>
+						<span class="logo">Wearthy</span>
+					</div>
+					<p class="tagline">The playful beginnings of human flourishing</p>
+				</div>
+
+				<div class="footer-nav">
+					<h4>Navigate</h4>
+					<a href="/">Home</a>
+					<a href="/three-pillars">Our Philosophy</a>
+					<a href="/all-saints-case-study">Case Studies</a>
+					<a href="/contact">Contact</a>
+				</div>
+
+				<div class="footer-services">
+					<h4>Services</h4>
+					<a href="/forms/site-appraisal">Site Appraisal</a>
+					<a href="/contact">Consultation</a>
+				</div>
+
+				<div class="footer-contact">
+					<h4>Get in Touch</h4>
+					<p>Brisbane, Queensland</p>
+					<p><a href="mailto:hello@wearthy.co">hello@wearthy.co</a></p>
+					<p><a href="tel:+61730000000">+61 7 3000 0000</a></p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 Wearthy. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+</BaseLayout>
+
+<style>
+	.home-header {
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.98) 0%, rgba(139, 119, 101, 0.98) 100%);
+		padding: 20px 0;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		color: #faf9f7;
+		text-decoration: none;
+		font-size: 1.8rem;
+	}
+
+	.main-nav {
+		display: flex;
+		gap: 30px;
+		align-items: center;
+	}
+
+	.main-nav a {
+		color: rgba(255, 255, 255, 0.9);
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 0.3s;
+	}
+
+	.main-nav a:hover {
+		color: white;
+	}
+
+	.nav-cta {
+		background: rgba(255, 255, 255, 0.15);
+		padding: 8px 18px;
+		border-radius: 6px;
+		font-weight: 500;
+	}
+
+	.nav-cta:hover {
+		background: rgba(255, 255, 255, 0.25);
+	}
+
+	.hero {
+		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
+		padding: 100px 0;
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 80px;
+		align-items: center;
+	}
+
+	.hero-title {
+		font-size: 4.5rem;
+		font-weight: 400;
+		color: #5a4a3a;
+		margin-bottom: 25px;
+		line-height: 1.1;
+		font-family: 'Georgia', serif;
+	}
+
+	.hero-subtitle {
+		font-size: 1.5rem;
+		color: #6b5b4b;
+		margin-bottom: 40px;
+		line-height: 1.5;
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+	}
+
+	.image-placeholder {
+		background: linear-gradient(135deg, rgba(184, 166, 144, 0.2), rgba(139, 119, 101, 0.2));
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #8b7765;
+		font-size: 0.9rem;
+		text-align: center;
+		border: 2px dashed rgba(139, 119, 101, 0.3);
+	}
+
+	.image-placeholder.large {
+		min-height: 450px;
+	}
+
+	.image-placeholder.medium {
+		min-height: 350px;
+	}
+
+	.image-placeholder.small {
+		min-height: 200px;
+	}
+
+	.credibility-banner {
+		background: linear-gradient(135deg, #5a4a3a, #6b5b4b);
+		color: white;
+		padding: 60px 0;
+	}
+
+	.credibility-stats {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 60px;
+		text-align: center;
+	}
+
+	.cred-number {
+		font-size: 4rem;
+		font-weight: 700;
+		margin-bottom: 10px;
+		font-family: 'Arial', sans-serif;
+		line-height: 1;
+	}
+
+	.cred-label {
+		font-size: 1rem;
+		opacity: 0.95;
+		line-height: 1.4;
+	}
+
+	.about-section {
+		padding: 120px 0;
+		background: white;
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 80px;
+		align-items: center;
+	}
+
+	.about-content h2 {
+		font-size: 3rem;
+		color: #5a4a3a;
+		margin-bottom: 30px;
+		font-weight: 400;
+		font-family: 'Georgia', serif;
+	}
+
+	.lead {
+		font-size: 1.3rem;
+		color: #5a4a3a;
+		line-height: 1.7;
+		margin-bottom: 25px;
+		font-weight: 500;
+	}
+
+	.about-content p {
+		color: #6b5b4b;
+		line-height: 1.8;
+		margin-bottom: 20px;
+		font-size: 1.05rem;
+	}
+
+	.awards-row {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+		margin-top: 40px;
+	}
+
+	.award-badge {
+		background: linear-gradient(135deg, #fff8e7, #fdf4e3);
+		padding: 25px 20px;
+		border-radius: 8px;
+		text-align: center;
+		border-left: 4px solid #c17817;
+	}
+
+	.award-year {
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: #c17817;
+		margin-bottom: 8px;
+	}
+
+	.award-name {
+		font-size: 1rem;
+		font-weight: 600;
+		color: #5a4a3a;
+		margin-bottom: 5px;
+	}
+
+	.award-org {
+		font-size: 0.85rem;
+		color: #8b7765;
+	}
+
+	.values-section {
+		padding: 100px 0;
+		background: #faf9f7;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		color: #5a4a3a;
+		text-align: center;
+		margin-bottom: 70px;
+		font-weight: 400;
+		font-family: 'Georgia', serif;
+	}
+
+	.values-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px;
+	}
+
+	.value-card {
+		background: white;
+		padding: 0;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
+		transition: transform 0.3s;
+	}
+
+	.value-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.15);
+	}
+
+	.value-image {
+		margin-bottom: 0;
+	}
+
+	.value-card h3 {
+		font-size: 1.6rem;
+		color: #5a4a3a;
+		margin: 25px 30px 15px;
+		font-family: 'Georgia', serif;
+		font-weight: 500;
+	}
+
+	.value-card p {
+		color: #6b5b4b;
+		line-height: 1.7;
+		margin: 0 30px 20px;
+		font-size: 1rem;
+	}
+
+	.text-link {
+		color: #8b7765;
+		text-decoration: none;
+		font-weight: 500;
+		margin: 0 30px 30px;
+		display: inline-block;
+		transition: color 0.3s;
+	}
+
+	.text-link:hover {
+		color: #5a4a3a;
+	}
+
+	.trusted-by-section {
+		padding: 100px 0;
+		background: white;
+	}
+
+	.schools-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 40px;
+		margin-bottom: 60px;
+	}
+
+	.school-logo {
+		background: #faf9f7;
+		padding: 40px;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 150px;
+		border: 1px solid rgba(212, 196, 176, 0.3);
+	}
+
+	.logo-placeholder {
+		color: #8b7765;
+		font-size: 1rem;
+		text-align: center;
+		font-weight: 500;
+	}
+
+	.testimonial-highlight {
+		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
+		padding: 50px 60px;
+		border-radius: 12px;
+		text-align: center;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.testimonial-quote {
+		font-size: 1.4rem;
+		color: #5a4a3a;
+		font-style: italic;
+		line-height: 1.7;
+		margin-bottom: 20px;
+	}
+
+	.testimonial-author {
+		color: #8b7765;
+		font-size: 1rem;
+	}
+
+	.educators-section {
+		padding: 100px 0;
+		background: #faf9f7;
+	}
+
+	.educators-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 80px;
+		align-items: center;
+	}
+
+	.educators-content h2 {
+		font-size: 3rem;
+		color: #5a4a3a;
+		margin-bottom: 25px;
+		font-weight: 400;
+		font-family: 'Georgia', serif;
+	}
+
+	.educator-features {
+		margin: 35px 0;
+	}
+
+	.feature-item {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 15px;
+		color: #6b5b4b;
+		font-size: 1.05rem;
+	}
+
+	.feature-icon {
+		color: #b8a690;
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+
+	.cta-row {
+		display: flex;
+		gap: 20px;
+		margin-top: 35px;
+		flex-wrap: wrap;
+	}
+
+	.tedx-badge {
+		background: linear-gradient(135deg, #c17817, #a66614);
+		color: white;
+		padding: 25px;
+		border-radius: 8px;
+		margin-top: 25px;
+		text-align: center;
+	}
+
+	.tedx-badge p {
+		margin-bottom: 15px;
+		line-height: 1.6;
+	}
+
+	.watch-link {
+		color: white;
+		text-decoration: none;
+		font-weight: 600;
+		border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+		transition: border-color 0.3s;
+	}
+
+	.watch-link:hover {
+		border-color: white;
+	}
+
+	.cta-final {
+		padding: 100px 0;
+		background: linear-gradient(135deg, #b8a690, #8b7765);
+		text-align: center;
+		color: white;
+	}
+
+	.cta-final h2 {
+		font-size: 3.5rem;
+		margin-bottom: 25px;
+		font-weight: 400;
+		font-family: 'Georgia', serif;
+	}
+
+	.cta-final p {
+		font-size: 1.3rem;
+		margin-bottom: 40px;
+		opacity: 0.95;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.btn-large {
+		padding: 18px 45px;
+		font-size: 1.2rem;
+	}
+
+	.site-footer {
+		background: #5a4a3a;
+		color: rgba(255, 255, 255, 0.8);
+		padding: 80px 0 30px;
+	}
+
+	.footer-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr 1.5fr;
+		gap: 60px;
+		margin-bottom: 60px;
+	}
+
+	.footer-logo {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		margin-bottom: 15px;
+	}
+
+	.footer-logo .logo {
+		font-size: 2rem;
+	}
+
+	.tagline {
+		font-size: 0.95rem;
+		font-style: italic;
+		opacity: 0.8;
+	}
+
+	.footer-nav h4,
+	.footer-services h4,
+	.footer-contact h4 {
+		color: white;
+		font-size: 1.1rem;
+		margin-bottom: 20px;
+		font-weight: 500;
+	}
+
+	.footer-nav a,
+	.footer-services a {
+		display: block;
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		margin-bottom: 12px;
+		transition: color 0.3s;
+	}
+
+	.footer-nav a:hover,
+	.footer-services a:hover {
+		color: white;
+	}
+
+	.footer-contact p {
+		margin-bottom: 10px;
+		font-size: 0.95rem;
+	}
+
+	.footer-contact a {
+		color: rgba(255, 255, 255, 0.8);
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+
+	.footer-contact a:hover {
+		color: white;
+	}
+
+	.footer-bottom {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 30px;
+		text-align: center;
+		font-size: 0.9rem;
+	}
+
+	@media (max-width: 1024px) {
+		.hero-grid,
+		.about-grid,
+		.educators-grid {
+			grid-template-columns: 1fr;
+			gap: 50px;
 		}
-		.loading {
-			text-align: center;
+
+		.values-grid,
+		.schools-grid {
+			grid-template-columns: repeat(2, 1fr);
 		}
-		.loading h1 {
-			font-size: 2rem;
-			font-weight: 400;
-			margin-bottom: 10px;
+
+		.credibility-stats {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 40px;
 		}
-		.loading p {
-			color: #8b7765;
+
+		.awards-row {
+			grid-template-columns: 1fr;
 		}
-		.loading a {
-			color: #8b7765;
-			text-decoration: underline;
+
+		.footer-grid {
+			grid-template-columns: 1fr 1fr;
+			gap: 40px;
 		}
-	</style>
-</head>
-<body>
-	<div class="loading">
-		<h1>Wearthy</h1>
-		<p>Redirecting you to our site appraisal page...</p>
-		<p><a href="/forms/site-appraisal">Click here if you're not redirected automatically</a></p>
-	</div>
-	<script>
-		window.location.href = '/forms/site-appraisal';
-	</script>
-</body>
-</html>
+	}
+
+	@media (max-width: 768px) {
+		.main-nav {
+			display: none;
+		}
+
+		.hero {
+			padding: 60px 0;
+		}
+
+		.hero-title {
+			font-size: 3rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.2rem;
+		}
+
+		.credibility-stats,
+		.values-grid,
+		.schools-grid {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+
+		.section-title {
+			font-size: 2.3rem;
+		}
+
+		.about-content h2,
+		.educators-content h2 {
+			font-size: 2.3rem;
+		}
+
+		.cta-final h2 {
+			font-size: 2.5rem;
+		}
+
+		.footer-grid {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+	}
+</style>
