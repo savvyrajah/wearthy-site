@@ -296,16 +296,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 	.logo-link {
 		display: inline-block;
-		background: rgba(255, 255, 255, 0.95);
-		padding: 15px 30px;
-		border-radius: 8px;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		padding: 15px 35px;
+		border-radius: 12px;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+		border: 1px solid rgba(255, 255, 255, 0.5);
 		transition: all 0.3s ease;
 	}
 
 	.logo-link:hover {
-		background: rgba(255, 255, 255, 1);
-		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+		background: rgba(255, 255, 255, 0.95);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		transform: translateY(-2px);
 	}
 
 	.logo-image {
