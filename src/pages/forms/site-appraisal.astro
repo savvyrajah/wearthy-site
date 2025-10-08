@@ -16,7 +16,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				<div class="urgency-badge" role="alert" aria-label="2026 Budget Planning">Planning for 2026</div>
 
 				<h1 class="hero-title">Book Your Free Discovery Call</h1>
-				<p class="hero-subtitle">No-obligation conversation to discuss ideas and budget estimates for your 2026 planning.</p>
+				<p class="hero-subtitle">No-obligation conversation to share ideas that could fit your space and school values.</p>
 			</div>
 		</div>
 	</header>
@@ -38,8 +38,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					<article class="value-prop" role="listitem">
 						<div class="value-icon" aria-hidden="true">2</div>
 						<div class="value-text">
-							<h3>Budget Planning for 2026</h3>
-							<p>Get realistic budget estimates to help with your 2026 planning. Whether you're exploring grant opportunities or setting aside funds, you'll have the information you need to plan ahead.</p>
+							<h3>Planning for 2026</h3>
+							<p>Get helpful ideas and ranges to support your 2026 planning. Whether you're exploring grant opportunities or setting aside funds, we'll share insights to help you plan ahead.</p>
 						</div>
 					</article>
 
@@ -104,7 +104,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					<h3 class="amount" id="discover-title">What You'll Receive</h3>
 					<div class="description">
 						✓ Ideas tailored to your specific outdoor spaces<br>
-						✓ Indicative budget ranges for planning purposes<br>
+						✓ General ranges and ballparks for planning purposes<br>
 						✓ Information about grant funding opportunities<br>
 						✓ Suggestions for phased implementation if helpful<br>
 						✓ No obligation or pressure to proceed
@@ -114,7 +114,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 			<aside class="form-section" aria-labelledby="form-title">
 				<h2 class="form-title" id="form-title">Book Your Discovery Call</h2>
-				<p class="form-subtitle">Share some details about your outdoor spaces and we'll schedule a call to discuss ideas and budget estimates for your 2026 planning.</p>
+				<p class="form-subtitle">Share some details about your outdoor spaces and we'll schedule a call to discuss ideas that could fit your space and school values.</p>
 
 				<form id="appraisalForm" role="form" aria-label="Discovery call booking form">
 					<fieldset class="form-group">
@@ -228,6 +228,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						<textarea id="additional-info" name="additional-info" placeholder="Share any thoughts about your current outdoor areas, what you'd like to achieve, or any specific challenges you're facing..."></textarea>
 					</fieldset>
 
+					<fieldset class="form-group">
+						<label for="photos">Upload photos of your outdoor spaces (optional)</label>
+						<input type="file" id="photos" name="photos" accept="image/*" multiple>
+						<p class="field-note">You can upload multiple photos to help us understand your space better.</p>
+					</fieldset>
+
 					<button type="submit" class="submit-btn">Book Discovery Call</button>
 
 					<p class="privacy-note">
@@ -296,19 +302,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 	.logo-link {
 		display: inline-block;
-		background: rgba(255, 255, 255, 0.85);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
 		padding: 15px 35px;
 		border-radius: 12px;
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-		border: 1px solid rgba(255, 255, 255, 0.5);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+		border: 1px solid rgba(255, 255, 255, 0.8);
 		transition: all 0.3s ease;
 	}
 
 	.logo-link:hover {
-		background: rgba(255, 255, 255, 0.95);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		background: rgba(255, 255, 255, 1);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 		transform: translateY(-2px);
 	}
 
@@ -344,19 +350,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		margin-bottom: 20px;
 		line-height: 1.2;
 		font-family: 'Georgia', serif;
-		color: white;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+		color: #f4e6d7;
+		text-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
 	}
 
 	.hero-subtitle {
 		font-size: 1.3rem;
 		margin-bottom: 0;
-		color: rgba(255, 255, 255, 0.95);
+		color: rgba(255, 255, 255, 0.98);
 		max-width: 650px;
 		margin-left: auto;
 		margin-right: auto;
 		line-height: 1.6;
-		text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 	}
 
 	.main-content {
@@ -609,6 +615,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		resize: vertical;
 		min-height: 100px;
 		font-family: inherit;
+	}
+
+	.form-group input[type="file"] {
+		padding: 10px;
+		background: white;
+		cursor: pointer;
+	}
+
+	.form-group input[type="file"]::-webkit-file-upload-button {
+		background: linear-gradient(135deg, #b8a690, #8b7765);
+		color: white;
+		border: none;
+		padding: 8px 16px;
+		border-radius: 4px;
+		cursor: pointer;
+		font-weight: 500;
+		margin-right: 12px;
+	}
+
+	.form-group input[type="file"]::-webkit-file-upload-button:hover {
+		background: linear-gradient(135deg, #a69580, #7a6654);
+	}
+
+	.field-note {
+		font-size: 0.85rem;
+		color: #8b7765;
+		margin-top: 6px;
+		font-style: italic;
 	}
 
 	.priority-questions {
