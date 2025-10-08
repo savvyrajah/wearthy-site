@@ -1,31 +1,38 @@
-import type { APIRoute } from 'astro';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const HUBSPOT_API_KEY = import.meta.env.HUBSPOT_API_KEY;
+const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
 const HUBSPOT_API_URL = 'https://api.hubapi.com';
 
-export const POST: APIRoute = async ({ request }) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ success: false, message: 'Method not allowed' });
+  }
+
   try {
-    const formData = await request.formData();
+    const formData = req.body;
 
     // Extract and split name
-    const fullName = formData.get('contactName') as string;
-    const nameParts = fullName?.trim().split(' ') || ['', ''];
+    const fullName = formData.contactName || '';
+    const nameParts = fullName.trim().split(' ');
     const firstname = nameParts[0] || '';
     const lastname = nameParts.slice(1).join(' ') || '';
 
     // Extract other fields
-    const email = formData.get('email') as string;
-    const phone = formData.get('phone') as string;
-    const company = formData.get('serviceName') as string;
-    const jobtitle = formData.get('position') as string;
-    const serviceType = formData.get('serviceType') as string;
-    const studentCount = formData.get('studentCount') as string;
-    const budgetRange = formData.get('indicativeBudget') as string;
-    const ageGroup = formData.get('ageGroup') as string;
-    const additionalInfo = formData.get('additional-info') as string;
+    const email = formData.email;
+    const phone = formData.phone;
+    const company = formData.serviceName;
+    const jobtitle = formData.position;
+    const serviceType = formData.serviceType;
+    const studentCount = formData.studentCount;
+    const budgetRange = formData.indicativeBudget;
+    const ageGroup = formData.ageGroup;
+    const additionalInfo = formData['additional-info'];
 
     // Handle multi-select planning stage
-    const planningStage = formData.getAll('phase[]').join(';');
+    const planningStage = Array.isArray(formData['phase[]'])
+      ? formData['phase[]'].join(';')
+      : formData['phase[]'] || '';
 
     // Prepare HubSpot contact payload
     const contactPayload = {
@@ -86,34 +93,23 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Handle photo uploads if present
-    const photos = formData.getAll('photos');
-    if (photos && photos.length > 0 && contactId) {
+    const photos = formData.photos;
+    if (photos && contactId) {
       // TODO: Upload photos to HubSpot Files API
-      // For now, we'll just log that photos were received
-      console.log(`Received ${photos.length} photos for contact ${contactId}`);
+      console.log(`Received photos for contact ${contactId}`);
     }
 
-    return new Response(JSON.stringify({
+    return res.status(200).json({
       success: true,
       contactId,
       message: 'Thank you! Please select a time below to speak with Flora.'
-    }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json'
-      }
     });
 
   } catch (error) {
     console.error('Error processing discovery call form:', error);
-    return new Response(JSON.stringify({
+    return res.status(500).json({
       success: false,
       message: 'An error occurred. Please try again or contact us directly.'
-    }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json'
-      }
     });
   }
-};
+}
