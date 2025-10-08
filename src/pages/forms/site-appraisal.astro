@@ -8,8 +8,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		<div class="container">
 			<div class="header-content">
 				<div class="logo-container">
-					<div class="logo-circle" aria-hidden="true"></div>
-					<a href="/" class="logo">Wearthy</a>
+					<a href="/" class="logo-link">
+						<img src="/Wearthy logo.png" alt="Wearthy" class="logo-image" />
+					</a>
 				</div>
 
 				<div class="urgency-badge" role="alert" aria-label="2026 Budget Planning">Planning for 2026</div>
@@ -263,8 +264,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 <style>
 	.header {
-		background: linear-gradient(135deg, rgba(90, 74, 58, 0.85), rgba(139, 119, 101, 0.85)),
-					url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1600&q=80') center/cover no-repeat;
+		background: url('/QCCS-WINSTONGLADES-26.webp') center/cover no-repeat;
 		min-height: 500px;
 		display: flex;
 		align-items: center;
@@ -279,7 +279,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(135deg, rgba(90, 74, 58, 0.75), rgba(139, 119, 101, 0.65));
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.45), rgba(139, 119, 101, 0.35));
 		z-index: 1;
 	}
 
@@ -290,25 +290,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 	.logo-container {
 		display: flex;
-		align-items: center;
-		gap: 12px;
+		justify-content: center;
 		margin-bottom: 40px;
 	}
 
-	.logo-circle {
-		width: 40px;
-		height: 40px;
-		background: rgba(255, 255, 255, 0.2);
-		border-radius: 50%;
-		border: 2px solid white;
+	.logo-link {
+		display: inline-block;
 	}
 
-	.logo {
-		color: white;
-		text-decoration: none;
-		font-size: 1.8rem;
-		font-family: 'Georgia', serif;
-		font-weight: 400;
+	.logo-image {
+		height: 60px;
+		width: auto;
+		filter: brightness(0) invert(1);
+		transition: opacity 0.3s ease;
+	}
+
+	.logo-image:hover {
+		opacity: 0.9;
 	}
 
 	.header-content {
@@ -710,13 +708,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			margin-bottom: 30px;
 		}
 
-		.logo {
-			font-size: 1.5rem;
-		}
-
-		.logo-circle {
-			width: 35px;
-			height: 35px;
+		.logo-image {
+			height: 50px;
 		}
 
 		.hero-title {
@@ -769,6 +762,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		.header {
 			min-height: 350px;
 			padding: 30px 0;
+		}
+
+		.logo-image {
+			height: 45px;
 		}
 
 		.hero-title {
