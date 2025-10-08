@@ -2,28 +2,28 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Complimentary Outdoor Space Appraisal - Wearthy | Queensland" description="Receive a complimentary, no-obligation appraisal of your outdoor spaces. Get helpful ideas and budget estimates for your 2026 planning.">
+<BaseLayout title="Book Your Free Discovery Call - Wearthy | Queensland" description="Book a complimentary discovery call to discuss your outdoor spaces. Get helpful ideas and budget estimates for your 2026 planning.">
 	<header class="header" role="banner">
+		<div class="hero-overlay"></div>
 		<div class="container">
 			<div class="header-content">
 				<div class="logo-container">
 					<div class="logo-circle" aria-hidden="true"></div>
 					<a href="/" class="logo">Wearthy</a>
 				</div>
-				<div class="tagline">The playful beginnings of human flourishing</div>
 
 				<div class="urgency-badge" role="alert" aria-label="2026 Budget Planning">Planning for 2026</div>
 
-				<h1 class="hero-title">Complimentary Outdoor Space Appraisal</h1>
-				<p class="hero-subtitle">We're offering a complimentary, no-obligation appraisal of your current outdoor spaces. This isn't a sales quote, but rather a helpful assessment to provide you with some ideas and budget estimates for any potential future projects.</p>
+				<h1 class="hero-title">Book Your Free Discovery Call</h1>
+				<p class="hero-subtitle">No-obligation conversation to discuss ideas and budget estimates for your 2026 planning.</p>
 			</div>
 		</div>
 	</header>
 
 	<main class="container" role="main">
 		<div class="main-content">
-			<section class="content-section" aria-labelledby="why-appraisal">
-				<h2 class="section-title" id="why-appraisal">How This Assessment Helps You</h2>
+			<section class="content-section" aria-labelledby="why-call">
+				<h2 class="section-title" id="why-call">How This Discovery Call Helps You</h2>
 
 				<div class="value-props" role="list">
 					<article class="value-prop" role="listitem">
@@ -90,7 +90,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						</div>
 						<div class="award" role="listitem">
 							<div class="award-icon" aria-hidden="true">★</div>
-							<span>Emanuel College & Hillcrest Early Learning</span>
+							<span>Moreton Bay College & Brisbane Adventist College</span>
 						</div>
 						<div class="award" role="listitem">
 							<div class="award-icon" aria-hidden="true">★</div>
@@ -112,10 +112,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</section>
 
 			<aside class="form-section" aria-labelledby="form-title">
-				<h2 class="form-title" id="form-title">Request Your Appraisal</h2>
-				<p class="form-subtitle">Share some details about your outdoor spaces and we'll provide you with a helpful assessment and ideas for your 2026 planning.</p>
+				<h2 class="form-title" id="form-title">Book Your Discovery Call</h2>
+				<p class="form-subtitle">Share some details about your outdoor spaces and we'll schedule a call to discuss ideas and budget estimates for your 2026 planning.</p>
 
-				<form id="appraisalForm" role="form" aria-label="Outdoor space appraisal request form">
+				<form id="appraisalForm" role="form" aria-label="Discovery call booking form">
 					<fieldset class="form-group">
 						<label for="serviceName">School or Early Learning Centre Name *</label>
 						<input type="text" id="serviceName" name="serviceName" required>
@@ -227,10 +227,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						<textarea id="additional-info" name="additional-info" placeholder="Share any thoughts about your current outdoor areas, what you'd like to achieve, or any specific challenges you're facing..."></textarea>
 					</fieldset>
 
-					<button type="submit" class="submit-btn">Request Appraisal</button>
+					<button type="submit" class="submit-btn">Book Discovery Call</button>
 
 					<p class="privacy-note">
-						Your information will only be used to provide your complimentary appraisal.
+						Your information will only be used to schedule your complimentary discovery call.
 						We respect your privacy and won't share your details with third parties. No obligation to proceed.
 					</p>
 				</form>
@@ -255,47 +255,101 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			}
 
 			console.log('Form submission data:', data);
-			alert('Thank you! We\'ll be in touch soon with your complimentary outdoor space appraisal.');
+			alert('Thank you! We\'ll be in touch soon to schedule your discovery call.');
 			(this as HTMLFormElement).reset();
 		});
 	</script>
 </BaseLayout>
 
 <style>
+	.header {
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.85), rgba(139, 119, 101, 0.85)),
+					url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1600&q=80') center/cover no-repeat;
+		min-height: 500px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		color: white;
+		padding: 60px 0;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.75), rgba(139, 119, 101, 0.65));
+		z-index: 1;
+	}
+
+	.header .container {
+		position: relative;
+		z-index: 2;
+	}
+
+	.logo-container {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 40px;
+	}
+
+	.logo-circle {
+		width: 40px;
+		height: 40px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		border: 2px solid white;
+	}
+
 	.logo {
-		color: #faf9f7;
+		color: white;
 		text-decoration: none;
+		font-size: 1.8rem;
+		font-family: 'Georgia', serif;
+		font-weight: 400;
+	}
+
+	.header-content {
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 
 	.urgency-badge {
 		display: inline-block;
-		background: #8b7765;
+		background: rgba(255, 255, 255, 0.25);
+		backdrop-filter: blur(10px);
 		color: white;
 		padding: 10px 25px;
 		border-radius: 30px;
 		font-weight: 500;
 		font-size: 0.9rem;
-		margin-bottom: 35px;
+		margin-bottom: 30px;
 		font-family: 'Arial', sans-serif;
+		border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 
 	.hero-title {
 		font-size: 3.5rem;
 		font-weight: 400;
-		margin-bottom: 25px;
+		margin-bottom: 20px;
 		line-height: 1.2;
 		font-family: 'Georgia', serif;
+		color: white;
+		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	}
 
 	.hero-subtitle {
-		font-size: 1.2rem;
-		margin-bottom: 35px;
-		opacity: 0.9;
-		max-width: 750px;
+		font-size: 1.3rem;
+		margin-bottom: 0;
+		color: rgba(255, 255, 255, 0.95);
+		max-width: 650px;
 		margin-left: auto;
 		margin-right: auto;
-		font-weight: 300;
 		line-height: 1.6;
+		text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 	}
 
 	.main-content {
@@ -630,21 +684,58 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		.main-content {
 			grid-template-columns: 1fr;
 			gap: 40px;
+			padding: 60px 0;
 		}
 
 		.form-section {
 			position: relative;
 			top: 0;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.content-section {
+			max-width: 800px;
+			margin: 0 auto;
 		}
 	}
 
 	@media (max-width: 768px) {
+		.header {
+			min-height: 400px;
+			padding: 40px 0;
+		}
+
+		.logo-container {
+			margin-bottom: 30px;
+		}
+
+		.logo {
+			font-size: 1.5rem;
+		}
+
+		.logo-circle {
+			width: 35px;
+			height: 35px;
+		}
+
 		.hero-title {
-			font-size: 2.6rem;
+			font-size: 2.5rem;
+			margin-bottom: 15px;
 		}
 
 		.hero-subtitle {
 			font-size: 1.1rem;
+			max-width: 500px;
+		}
+
+		.urgency-badge {
+			font-size: 0.85rem;
+			padding: 8px 20px;
+		}
+
+		.main-content {
+			padding: 40px 0;
 		}
 
 		.content-section,
@@ -652,15 +743,40 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			padding: 35px 25px;
 		}
 
+		.section-title {
+			font-size: 2rem;
+		}
+
 		.stats-grid {
 			grid-template-columns: 1fr;
 			gap: 25px;
 		}
+
+		.stat-number {
+			font-size: 3rem;
+		}
+
+		.value-prop {
+			padding: 20px;
+		}
+
+		.impact-stats {
+			padding: 35px 25px;
+		}
 	}
 
 	@media (max-width: 480px) {
+		.header {
+			min-height: 350px;
+			padding: 30px 0;
+		}
+
 		.hero-title {
-			font-size: 2.2rem;
+			font-size: 2rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1rem;
 		}
 
 		.content-section,
@@ -669,7 +785,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		}
 
 		.section-title {
-			font-size: 1.8rem;
+			font-size: 1.7rem;
+		}
+
+		.value-text h3 {
+			font-size: 1.1rem;
+		}
+
+		.value-text p {
+			font-size: 0.9rem;
+		}
+
+		.form-title {
+			font-size: 1.7rem;
+		}
+
+		.stat-number {
+			font-size: 2.5rem;
+		}
+
+		.stat-label {
+			font-size: 1rem;
 		}
 	}
 </style>
