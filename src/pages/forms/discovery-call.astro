@@ -72,7 +72,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 							<div class="stat-label">Children Enriched</div>
 						</div>
 						<div class="stat-item" role="listitem">
-							<div class="stat-number stat-number-large" aria-label="10 years of experience">10 Years</div>
+							<div class="stat-number stat-number-large" aria-label="10 years of experience">10<span class="stat-unit">Years</span></div>
 							<div class="stat-label stat-label-small">Creating Play Environments</div>
 						</div>
 					</div>
@@ -565,6 +565,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 	.stat-number-large {
 		font-size: 4.5rem;
+	}
+
+	.stat-unit {
+		font-size: 1.8rem;
+		font-weight: 400;
+		margin-left: 8px;
 	}
 
 	.stat-label {
