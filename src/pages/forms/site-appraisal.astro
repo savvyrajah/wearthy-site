@@ -104,7 +104,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					<h3 class="amount" id="discover-title">What You'll Receive</h3>
 					<div class="description">
 						✓ Ideas tailored to your specific outdoor spaces<br>
-						✓ General ranges and ballparks for planning purposes<br>
+						✓ General ranges / ballparks for budget planning purposes<br>
 						✓ Information about grant funding opportunities<br>
 						✓ Suggestions for phased implementation if helpful<br>
 						✓ No obligation or pressure to proceed
@@ -285,9 +285,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.65));
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.65), rgba(139, 119, 101, 0.55));
+		backdrop-filter: blur(3px);
+		-webkit-backdrop-filter: blur(3px);
 		z-index: 1;
 	}
 
@@ -305,18 +305,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	.logo-link {
 		display: inline-block;
 		padding: 15px 35px;
-		border-radius: 12px;
 		transition: all 0.3s ease;
 	}
 
 	.logo-link:hover {
 		transform: translateY(-2px);
+		opacity: 0.9;
 	}
 
 	.logo-image {
 		height: 70px;
 		width: auto;
 		display: block;
+		filter: brightness(0) invert(1);
+		drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 	}
 
 	.header-content {
@@ -327,7 +329,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 	.urgency-badge {
 		display: inline-block;
-		background: #8b7765;
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
 		color: white;
 		padding: 10px 25px;
 		border-radius: 30px;
@@ -335,7 +339,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		font-size: 0.9rem;
 		margin-bottom: 30px;
 		font-family: 'Arial', sans-serif;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 
 	.hero-title {
@@ -344,18 +348,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		margin-bottom: 20px;
 		line-height: 1.2;
 		font-family: 'Georgia', serif;
-		color: #5a4a3a;
-		text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+		color: white;
+		text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 	}
 
 	.hero-subtitle {
 		font-size: 1.3rem;
 		margin-bottom: 0;
-		color: #6b5b4b;
+		color: rgba(255, 255, 255, 0.95);
 		max-width: 650px;
 		margin-left: auto;
 		margin-right: auto;
 		line-height: 1.6;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 	}
 
 	.main-content {
