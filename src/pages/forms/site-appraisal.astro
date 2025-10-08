@@ -72,8 +72,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 							<div class="stat-label">Children Enriched</div>
 						</div>
 						<div class="stat-item" role="listitem">
-							<div class="stat-number" aria-label="10 years of experience">10 Years</div>
-							<div class="stat-label">Creating Play Environments</div>
+							<div class="stat-number stat-number-large" aria-label="10 years of experience">10 Years</div>
+							<div class="stat-label stat-label-small">Creating Play Environments</div>
 						</div>
 					</div>
 				</section>
@@ -182,8 +182,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 							<option value="">Select budget range</option>
 							<option value="under-50k">Under $50,000</option>
 							<option value="50k-100k">$50,000 - $100,000</option>
-							<option value="100k-150k">$100,000 - $150,000</option>
-							<option value="over-150k">Over $150,000</option>
+							<option value="100k-250k">$100,000 - $250,000</option>
+							<option value="250k-500k">$250,000 - $500,000</option>
+							<option value="over-500k">Over $500,000</option>
 							<option value="unsure">Not sure yet</option>
 						</select>
 					</fieldset>
@@ -243,27 +244,113 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 				</form>
 			</aside>
 		</div>
+
+		<!-- Calendar Booking Section (Hidden by default) -->
+		<div id="calendarSection" class="calendar-section" style="display: none;">
+			<div class="container">
+				<div class="calendar-grid">
+					<!-- HubSpot Calendar Embed -->
+					<div class="calendar-embed">
+						<h2 class="calendar-title">Select a Time to Speak with Flora</h2>
+						<div class="meetings-iframe-container" data-src="https://meetings-ap1.hubspot.com/flora?embed=true"></div>
+						<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+					</div>
+
+					<!-- Credibility Sidebar -->
+					<aside class="credibility-sidebar">
+						<h3 class="sidebar-title">Why Choose Wearthy?</h3>
+
+						<div class="credibility-item">
+							<div class="cred-icon">⭐</div>
+							<div class="cred-content">
+								<h4>10 Years Creating Play Environments</h4>
+								<p>Over a decade of experience designing nature-inspired playgrounds</p>
+							</div>
+						</div>
+
+						<div class="credibility-item">
+							<div class="cred-icon">🏆</div>
+							<div class="cred-content">
+								<h4>100+ Playgrounds Built</h4>
+								<p>16,000+ children impacted worldwide</p>
+							</div>
+						</div>
+
+						<div class="credibility-item">
+							<div class="cred-icon">🥇</div>
+							<div class="cred-content">
+								<h4>3x QLD Play Spaces Winner</h4>
+								<p>2021-2023 consecutive years</p>
+							</div>
+						</div>
+
+						<div class="testimonial-box">
+							<h4 class="testimonial-title">All Saints Anglican School</h4>
+							<p class="testimonial-text">
+								"The new playground has been a fantastic addition to our school! One of the standout features is the giant slide, which has quickly become a favorite among the children. Its size and speed bring a real sense of excitement and joy to playtime.
+							</p>
+							<p class="testimonial-text">
+								Equally popular is the physical challenge aspect of the playground. The climbing structures, balance elements, and obstacle-style features encourage students to test their strength, coordination, and confidence in a fun and safe environment. It's wonderful to see so many children engaged, active, and smiling as they explore the space.
+							</p>
+							<p class="testimonial-text">
+								Overall, the playground has not only enhanced outdoor play but also supports physical development and social interaction. A big win for our school community!"
+							</p>
+							<p class="testimonial-author">— All Saints Anglican School</p>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
 	</main>
 
 	<script>
-		document.getElementById('appraisalForm')?.addEventListener('submit', function(e) {
+		document.getElementById('appraisalForm')?.addEventListener('submit', async function(e) {
 			e.preventDefault();
 
-			const formData = new FormData(this);
-			const data: Record<string, any> = {};
+			const form = this as HTMLFormElement;
+			const submitButton = form.querySelector('.submit-btn') as HTMLButtonElement;
+			const originalButtonText = submitButton.textContent;
 
-			for (let [key, value] of formData.entries()) {
-				if (key === 'phase[]') {
-					if (!data.phase) data.phase = [];
-					data.phase.push(value);
+			// Disable button and show loading state
+			submitButton.disabled = true;
+			submitButton.textContent = 'Submitting...';
+
+			try {
+				const formData = new FormData(form);
+
+				// Submit to HubSpot API
+				const response = await fetch('/api/hubspot/discovery-call', {
+					method: 'POST',
+					body: formData
+				});
+
+				const result = await response.json();
+
+				if (result.success) {
+					// Hide the form section
+					const mainContent = document.querySelector('.main-content') as HTMLElement;
+					if (mainContent) {
+						mainContent.style.display = 'none';
+					}
+
+					// Show the calendar section
+					const calendarSection = document.getElementById('calendarSection');
+					if (calendarSection) {
+						calendarSection.style.display = 'block';
+						// Scroll to calendar
+						calendarSection.scrollIntoView({ behavior: 'smooth' });
+					}
 				} else {
-					data[key] = value;
+					alert('There was an error submitting your request. Please try again or contact us directly at hello@wearthy.co');
+					submitButton.disabled = false;
+					submitButton.textContent = originalButtonText;
 				}
+			} catch (error) {
+				console.error('Form submission error:', error);
+				alert('There was an error submitting your request. Please try again or contact us directly at hello@wearthy.co');
+				submitButton.disabled = false;
+				submitButton.textContent = originalButtonText;
 			}
-
-			console.log('Form submission data:', data);
-			alert('Thank you! We\'ll be in touch soon to schedule your discovery call.');
-			(this as HTMLFormElement).reset();
 		});
 	</script>
 </BaseLayout>
@@ -314,7 +401,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	}
 
 	.logo-image {
-		height: 70px;
+		height: 100px;
 		width: auto;
 		display: block;
 		filter: brightness(0) invert(1);
@@ -476,11 +563,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		line-height: 1;
 	}
 
+	.stat-number-large {
+		font-size: 4.5rem;
+	}
+
 	.stat-label {
 		font-size: 1.1rem;
 		color: #5a4a3a;
 		font-weight: 500;
 		font-family: 'Georgia', serif;
+	}
+
+	.stat-label-small {
+		font-size: 0.95rem;
 	}
 
 	.credibility {
@@ -719,6 +814,115 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		font-weight: 600;
 	}
 
+	/* Calendar Section Styles */
+	.calendar-section {
+		background: #faf9f7;
+		padding: 80px 0;
+		min-height: 600px;
+	}
+
+	.calendar-grid {
+		display: grid;
+		grid-template-columns: 60% 40%;
+		gap: 60px;
+		align-items: start;
+	}
+
+	.calendar-embed {
+		background: white;
+		padding: 40px;
+		border-radius: 12px;
+		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.08);
+	}
+
+	.calendar-title {
+		font-size: 2rem;
+		color: #5a4a3a;
+		margin-bottom: 30px;
+		font-family: 'Georgia', serif;
+		text-align: center;
+	}
+
+	.meetings-iframe-container {
+		min-height: 500px;
+	}
+
+	.credibility-sidebar {
+		background: white;
+		padding: 40px;
+		border-radius: 12px;
+		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.08);
+		position: sticky;
+		top: 20px;
+	}
+
+	.sidebar-title {
+		font-size: 1.8rem;
+		color: #5a4a3a;
+		margin-bottom: 30px;
+		font-family: 'Georgia', serif;
+	}
+
+	.credibility-item {
+		display: flex;
+		gap: 15px;
+		margin-bottom: 25px;
+		padding-bottom: 25px;
+		border-bottom: 1px solid #e8dcc6;
+	}
+
+	.credibility-item:last-of-type {
+		border-bottom: none;
+	}
+
+	.cred-icon {
+		font-size: 2rem;
+		flex-shrink: 0;
+	}
+
+	.cred-content h4 {
+		font-size: 1.1rem;
+		color: #5a4a3a;
+		margin-bottom: 5px;
+		font-weight: 500;
+	}
+
+	.cred-content p {
+		font-size: 0.9rem;
+		color: #6b5b4b;
+		line-height: 1.5;
+	}
+
+	.testimonial-box {
+		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
+		padding: 25px;
+		border-radius: 8px;
+		margin-top: 30px;
+	}
+
+	.testimonial-title {
+		font-size: 1.2rem;
+		color: #5a4a3a;
+		margin-bottom: 15px;
+		font-weight: 500;
+		font-family: 'Georgia', serif;
+	}
+
+	.testimonial-text {
+		font-size: 0.95rem;
+		color: #6b5b4b;
+		line-height: 1.6;
+		margin-bottom: 12px;
+		font-style: italic;
+	}
+
+	.testimonial-author {
+		font-size: 0.9rem;
+		color: #8b7765;
+		font-weight: 500;
+		margin-top: 15px;
+	}
+
 	@media (max-width: 1024px) {
 		.main-content {
 			grid-template-columns: 1fr;
@@ -737,6 +941,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			max-width: 800px;
 			margin: 0 auto;
 		}
+
+		.calendar-grid {
+			grid-template-columns: 1fr;
+			gap: 40px;
+		}
+
+		.credibility-sidebar {
+			position: relative;
+			top: 0;
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -750,7 +964,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		}
 
 		.logo-image {
-			height: 55px;
+			height: 80px;
 		}
 
 		.hero-title {
@@ -797,6 +1011,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		.impact-stats {
 			padding: 35px 25px;
 		}
+
+		.calendar-section {
+			padding: 40px 0;
+		}
+
+		.calendar-embed,
+		.credibility-sidebar {
+			padding: 25px 20px;
+		}
+
+		.calendar-title {
+			font-size: 1.6rem;
+		}
+
+		.sidebar-title {
+			font-size: 1.5rem;
+		}
 	}
 
 	@media (max-width: 480px) {
@@ -806,7 +1037,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		}
 
 		.logo-image {
-			height: 50px;
+			height: 70px;
 		}
 
 		.hero-title {
