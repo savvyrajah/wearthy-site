@@ -262,7 +262,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 						<div class="credibility-item">
 							<div class="cred-icon-circle">
-								<span class="icon-number">10</span>
+								<span class="icon-emoji">🌳</span>
 							</div>
 							<div class="cred-content">
 								<h4>10 Years Creating Play Environments</h4>
@@ -272,7 +272,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 						<div class="credibility-item">
 							<div class="cred-icon-circle">
-								<span class="icon-text">100+</span>
+								<span class="icon-emoji">🎯</span>
 							</div>
 							<div class="cred-content">
 								<h4>100+ Playgrounds Built</h4>
@@ -282,7 +282,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 						<div class="credibility-item">
 							<div class="cred-icon-circle">
-								<span class="icon-text">3x</span>
+								<span class="icon-emoji">🏆</span>
 							</div>
 							<div class="cred-content">
 								<h4>3x QLD Play Spaces Winner</h4>
@@ -925,10 +925,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	}
 
 	.icon-number,
-	.icon-text {
+	.icon-text,
+	.icon-emoji {
 		color: white;
 		font-weight: 700;
-		font-size: 1.3rem;
+		font-size: 2rem;
 		font-family: 'Arial', sans-serif;
 	}
 
@@ -954,7 +955,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		display: none !important;
 	}
 
+	/* Hide HubSpot branding more aggressively */
+	.meetings-iframe-container iframe {
+		margin-bottom: -50px !important;
+	}
+
 	/* Additional CSS to hide HubSpot footer branding */
+	.calendar-embed {
+		overflow: hidden;
+		position: relative;
+	}
+
 	.calendar-embed::after {
 		content: '';
 		position: absolute;
