@@ -149,7 +149,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ? formData['phase[]'].join(';')
       : formData['phase[]'] || '';
 
-    // Prepare HubSpot contact payload
+    // Prepare HubSpot contact payload - only basic fields first
     const contactPayload = {
       properties: {
         email,
@@ -157,20 +157,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         lastname,
         phone,
         company,
-        jobtitle,
-        wearthy_service_type: serviceType || '',
-        wearthy_student_count: studentCount || '',
-        wearthy_budget_range: budgetRange || '',
-        wearthy_age_group: ageGroup || '',
-        wearthy_planning_stage: planningStage || '',
-        message: additionalInfo || '',
-        wearthy_discovery_call_requested: 'true'
+        jobtitle
       }
     };
 
     console.log('Creating contact with email:', email);
     console.log('Sending to URL:', `${HUBSPOT_API_URL}/crm/v3/objects/contacts`);
-    console.log('Contact payload:', JSON.stringify(contactPayload, null, 2));
+    console.log('Basic contact payload:', JSON.stringify(contactPayload, null, 2));
+    console.log('Custom properties to be added after delay:', {
+      serviceType,
+      studentCount,
+      budgetRange,
+      ageGroup,
+      planningStage,
+      hasAdditionalInfo: !!additionalInfo
+    });
 
     // Create or update contact in HubSpot
     const hubspotResponse = await fetch(`${HUBSPOT_API_URL}/crm/v3/objects/contacts`, {
@@ -205,6 +206,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } else if (hubspotResponse.ok) {
       const data = await hubspotResponse.json();
       contactId = data.id;
+      console.log('Contact created with ID:', contactId);
+
+      // Wait 2 seconds for HubSpot to fully process the contact
+      console.log('Waiting 2 seconds before updating custom properties...');
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Update contact with custom properties (HubSpot timing workaround)
+      console.log('Updating contact with custom properties');
+      const updateResponse = await fetch(`${HUBSPOT_API_URL}/crm/v3/objects/contacts/${contactId}`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          properties: {
+            wearthy_service_type: serviceType || '',
+            wearthy_student_count: studentCount || '',
+            wearthy_budget_range: budgetRange || '',
+            wearthy_age_group: ageGroup || '',
+            wearthy_planning_stage: planningStage || '',
+            message: additionalInfo || '',
+            wearthy_discovery_call_requested: 'true'
+          }
+        })
+      });
+
+      if (updateResponse.ok) {
+        console.log('Custom properties updated successfully');
+      } else {
+        const updateError = await updateResponse.text();
+        console.error('Failed to update custom properties:', updateError);
+      }
     } else {
       // Log the full error response for debugging
       const responseText = await hubspotResponse.text();
