@@ -170,7 +170,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     console.log('Creating contact with email:', email);
     console.log('Sending to URL:', `${HUBSPOT_API_URL}/crm/v3/objects/contacts`);
-    console.log('Payload keys:', Object.keys(contactPayload.properties));
+    console.log('Contact payload:', JSON.stringify(contactPayload, null, 2));
 
     // Create or update contact in HubSpot
     const hubspotResponse = await fetch(`${HUBSPOT_API_URL}/crm/v3/objects/contacts`, {
@@ -219,23 +219,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Handle photo uploads if present
     const photos = formData.photos;
+    console.log('Photo check:', {
+      hasPhotos: !!photos,
+      isArray: Array.isArray(photos),
+      length: Array.isArray(photos) ? photos.length : 0,
+      contactId
+    });
+
     if (photos && Array.isArray(photos) && photos.length > 0 && contactId) {
+      console.log(`Processing ${photos.length} photos for contact ${contactId}`);
       const fileIds: string[] = [];
 
       for (let i = 0; i < photos.length; i++) {
         const photo = photos[i];
         const fileName = `discovery-call-photo-${Date.now()}-${i}.jpg`;
+        console.log(`Uploading photo ${i + 1}/${photos.length}: ${fileName}`);
         const fileId = await uploadFileToHubSpot(photo, fileName);
 
         if (fileId) {
+          console.log(`Photo ${i + 1} uploaded successfully with ID: ${fileId}`);
           fileIds.push(fileId);
+        } else {
+          console.error(`Failed to upload photo ${i + 1}`);
         }
       }
 
       // Create a note with the uploaded photos attached to the contact
       if (fileIds.length > 0) {
+        console.log(`Creating note with ${fileIds.length} attachments`);
         await createNoteWithAttachments(contactId, fileIds);
+        console.log('Note created successfully');
       }
+    } else {
+      console.log('No photos to process');
     }
 
     return res.status(200).json({
