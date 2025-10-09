@@ -108,6 +108,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    // Check if API key is configured
+    if (!HUBSPOT_API_KEY) {
+      console.error('HUBSPOT_API_KEY is not configured');
+      return res.status(500).json({
+        success: false,
+        message: 'Server configuration error. Please contact support.'
+      });
+    }
+
     const formData = req.body;
 
     // Extract and split name
@@ -151,6 +160,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     };
 
+    console.log('Creating contact with email:', email);
+
     // Create or update contact in HubSpot
     const hubspotResponse = await fetch(`${HUBSPOT_API_URL}/crm/v3/contacts`, {
       method: 'POST',
@@ -185,9 +196,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const data = await hubspotResponse.json();
       contactId = data.id;
     } else {
-      const errorData = await hubspotResponse.json();
-      console.error('HubSpot API Error:', errorData);
-      throw new Error('Failed to create contact in HubSpot');
+      // Log the full error response for debugging
+      const responseText = await hubspotResponse.text();
+      console.error('HubSpot API Error Response:', {
+        status: hubspotResponse.status,
+        statusText: hubspotResponse.statusText,
+        body: responseText.substring(0, 500) // First 500 chars
+      });
+
+      throw new Error(`Failed to create contact in HubSpot: ${hubspotResponse.status} ${hubspotResponse.statusText}`);
     }
 
     // Handle photo uploads if present
