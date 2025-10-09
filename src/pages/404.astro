@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found - Wearthy" description="The page you're looking for doesn't exist. Explore our nature-inspired playground projects and philosophy.">
+	<main class="not-found-main">
+		<div class="container">
+			<div class="not-found-content">
+				<div class="error-code">404</div>
+				<h1 class="error-title">This Page Doesn't Exist</h1>
+				<p class="error-message">
+					But we'd love to show you what we're creating for schools and early learning centres across Queensland.
+				</p>
+
+				<div class="cta-grid">
+					<a href="/forms/discovery-call" class="cta-card primary-cta">
+						<div class="cta-icon">📅</div>
+						<h2>Book Discovery Call</h2>
+						<p>Schedule a free consultation to discuss your outdoor spaces and explore ideas for your school.</p>
+						<span class="cta-arrow">→</span>
+					</a>
+
+					<a href="/all-saints-case-study" class="cta-card">
+						<div class="cta-icon">🏫</div>
+						<h2>Case Study</h2>
+						<p>See how we transformed All Saints Anglican School's playground into a nature-inspired learning environment.</p>
+						<span class="cta-arrow">→</span>
+					</a>
+
+					<a href="/ecology-of-play" class="cta-card">
+						<div class="cta-icon">🌳</div>
+						<h2>Ecology of Play</h2>
+						<p>Discover our philosophy on raising resilient children through unstructured outdoor play.</p>
+						<span class="cta-arrow">→</span>
+					</a>
+				</div>
+
+				<div class="back-link">
+					<a href="/forms/discovery-call" class="subtle-link">← Start with a discovery call</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.not-found-main {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		padding: 80px 0;
+		background: linear-gradient(135deg, #faf9f7 0%, #f4ede3 100%);
+	}
+
+	.not-found-content {
+		text-align: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.error-code {
+		font-size: 10rem;
+		font-weight: 700;
+		color: #e8dcc6;
+		line-height: 1;
+		margin-bottom: 20px;
+		font-family: 'Georgia', serif;
+		text-shadow: 2px 2px 4px rgba(90, 74, 58, 0.1);
+	}
+
+	.error-title {
+		font-size: 3rem;
+		color: #5a4a3a;
+		margin-bottom: 20px;
+		font-weight: 400;
+		font-family: 'Georgia', serif;
+	}
+
+	.error-message {
+		font-size: 1.3rem;
+		color: #6b5b4b;
+		margin-bottom: 60px;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.6;
+	}
+
+	.cta-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-bottom: 50px;
+	}
+
+	.cta-card {
+		background: white;
+		padding: 40px 30px;
+		border-radius: 12px;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		border: 2px solid #e8dcc6;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
+	}
+
+	.cta-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.15);
+		border-color: #b8a690;
+	}
+
+	.primary-cta {
+		background: linear-gradient(135deg, #b8a690, #8b7765);
+		border-color: #8b7765;
+		color: white;
+	}
+
+	.primary-cta h2,
+	.primary-cta p {
+		color: white;
+	}
+
+	.primary-cta:hover {
+		background: linear-gradient(135deg, #a69580, #7a6654);
+		border-color: #7a6654;
+	}
+
+	.cta-icon {
+		font-size: 3rem;
+		margin-bottom: 20px;
+		display: block;
+	}
+
+	.cta-card h2 {
+		font-size: 1.6rem;
+		color: #5a4a3a;
+		margin-bottom: 15px;
+		font-weight: 500;
+		font-family: 'Georgia', serif;
+	}
+
+	.cta-card p {
+		font-size: 1rem;
+		color: #6b5b4b;
+		line-height: 1.6;
+		margin-bottom: 20px;
+		flex-grow: 1;
+	}
+
+	.cta-arrow {
+		font-size: 1.5rem;
+		color: #b8a690;
+		font-weight: bold;
+	}
+
+	.primary-cta .cta-arrow {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.back-link {
+		margin-top: 40px;
+	}
+
+	.subtle-link {
+		color: #8b7765;
+		text-decoration: none;
+		font-size: 1.1rem;
+		transition: color 0.3s ease;
+	}
+
+	.subtle-link:hover {
+		color: #5a4a3a;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 1024px) {
+		.cta-grid {
+			grid-template-columns: 1fr;
+			gap: 25px;
+		}
+
+		.error-code {
+			font-size: 8rem;
+		}
+
+		.error-title {
+			font-size: 2.5rem;
+		}
+
+		.error-message {
+			font-size: 1.2rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.not-found-main {
+			padding: 60px 0;
+		}
+
+		.error-code {
+			font-size: 6rem;
+		}
+
+		.error-title {
+			font-size: 2rem;
+		}
+
+		.error-message {
+			font-size: 1.1rem;
+			margin-bottom: 40px;
+		}
+
+		.cta-card {
+			padding: 30px 25px;
+		}
+
+		.cta-card h2 {
+			font-size: 1.4rem;
+		}
+
+		.cta-icon {
+			font-size: 2.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.error-code {
+			font-size: 5rem;
+		}
+
+		.error-title {
+			font-size: 1.7rem;
+		}
+
+		.error-message {
+			font-size: 1rem;
+		}
+
+		.cta-card {
+			padding: 25px 20px;
+		}
+	}
+</style>
