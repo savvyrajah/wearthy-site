@@ -318,10 +318,50 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			try {
 				const formData = new FormData(form);
 
+				// Convert FormData to JSON object
+				const jsonData: Record<string, any> = {};
+				const photoFiles: File[] = [];
+
+				formData.forEach((value, key) => {
+					// Collect photo files separately
+					if (key === 'photos' && value instanceof File && value.size > 0) {
+						photoFiles.push(value);
+						return;
+					}
+
+					// Handle checkboxes (phase[])
+					if (key.endsWith('[]')) {
+						if (!jsonData[key]) {
+							jsonData[key] = [];
+						}
+						jsonData[key].push(value);
+					} else {
+						jsonData[key] = value;
+					}
+				});
+
+				// Convert photos to base64 if any were uploaded
+				if (photoFiles.length > 0) {
+					const photoPromises = photoFiles.map(file => {
+						return new Promise<string>((resolve, reject) => {
+							const reader = new FileReader();
+							reader.onload = () => resolve(reader.result as string);
+							reader.onerror = reject;
+							reader.readAsDataURL(file);
+						});
+					});
+
+					const photoBase64Array = await Promise.all(photoPromises);
+					jsonData.photos = photoBase64Array;
+				}
+
 				// Submit to HubSpot API
 				const response = await fetch('/api/hubspot/discovery-call', {
 					method: 'POST',
-					body: formData
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(jsonData)
 				});
 
 				const result = await response.json();

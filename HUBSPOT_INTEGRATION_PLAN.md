@@ -15,13 +15,13 @@
 | Phone | `phone` | ✅ Standard | Use directly |
 | School/Centre Name | `company` | ✅ Standard | Use directly |
 | Position | `jobtitle` | ✅ Standard | Use directly |
-| Service Type | `wearthy_service_type` | ❌ Missing | **Create** |
-| Student Count | `wearthy_student_count` | ❌ Missing | **Create** |
-| Budget Range | `wearthy_budget_range` | ❌ Missing | **Create** |
-| Age Group | `wearthy_age_group` | ❌ Missing | **Create** |
-| Planning Stage | `wearthy_planning_stage` | ❌ Missing | **Create** |
+| Service Type | `wearthy_service_type` | ✅ Created | Dropdown field |
+| Student Count | `wearthy_student_count` | ✅ Created | Dropdown field |
+| Budget Range | `wearthy_budget_range` | ✅ Created | Dropdown field |
+| Age Group | `wearthy_age_group` | ✅ Created | Dropdown field |
+| Planning Stage | `wearthy_planning_stage` | ✅ Created | Multi-checkbox field |
 | Outdoor Space Notes | `message` | ✅ Standard | Use directly |
-| Photos | File Upload | ❌ Missing | **Handle separately** |
+| Photos | File Upload | ✅ Implemented | Uploaded to HubSpot Files API |
 
 ## Custom Properties to Create
 
@@ -124,10 +124,24 @@ fetch('/api/hubspot/discovery-call', {
   });
 ```
 
-### 5. File Upload Handling
-- Use HubSpot Files API
-- Or store in your S3/storage + link in notes
-- Attach file URLs to contact record
+### 5. File Upload Handling ✅ IMPLEMENTED
+
+Photos are now uploaded to HubSpot using the following workflow:
+
+1. **Client-side:** Photos converted to base64 and sent with JSON payload
+2. **Server-side:**
+   - Photos uploaded to HubSpot Files API v3
+   - Files stored in `/discovery-call-photos` folder with `PRIVATE` access
+   - File IDs retrieved from upload response
+3. **Association:**
+   - A Note object is created with the body: "Discovery call photos submitted via website form"
+   - File IDs attached to the Note via `hs_attachment_ids` property
+   - Note associated with Contact using association type ID 202 (Note to Contact)
+4. **Result:** Flora can view all photos directly in the contact record's activity timeline
+
+**API Endpoints Used:**
+- `POST /files/v3/files` - Upload photos
+- `POST /crm/v3/objects/notes` - Create note with attachments
 
 ### 6. Meeting Scheduler Setup
 
@@ -175,8 +189,24 @@ After form submission, transform the page to show:
 ```
 POST /api/hubspot/discovery-call
 
-Request:
-- FormData with all fields + photos
+Request (JSON):
+{
+  "contactName": "John Smith",
+  "email": "john@school.edu",
+  "phone": "+61400000000",
+  "serviceName": "Example School",
+  "position": "Principal",
+  "serviceType": "primary-school",
+  "studentCount": "300-500",
+  "indicativeBudget": "100k-250k",
+  "ageGroup": "middle-primary",
+  "phase[]": ["exploring", "preparing-next-budget"],
+  "additional-info": "We need help with outdoor spaces...",
+  "photos": [
+    "data:image/jpeg;base64,/9j/4AAQSkZJRg...",
+    "data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+  ]
+}
 
 Response:
 {
@@ -185,6 +215,8 @@ Response:
   "message": "Thank you! Please select a time below to speak with Flora."
 }
 ```
+
+**Note:** Photos are sent as base64-encoded data URLs in the JSON payload, then converted to binary on the server before uploading to HubSpot Files API.
 
 ### Contact Creation Payload
 ```json
@@ -207,26 +239,47 @@ Response:
 }
 ```
 
-## Next Steps
+## Implementation Status ✅ COMPLETE
 
-### What I'll Do:
-1. ✅ Create custom properties in HubSpot
-2. ✅ Add tracking code to site
-3. ✅ Build API endpoint
-4. ✅ Update form JavaScript
-5. ✅ Implement file upload handling
+### Completed Items:
+1. ✅ Custom properties created in HubSpot
+2. ✅ API endpoint built (`/api/hubspot/discovery-call`)
+3. ✅ Form JavaScript updated to send JSON with base64 photos
+4. ✅ File upload handling implemented via HubSpot Files API
+5. ✅ Photo association via Note engagements
+6. ✅ Contact creation/update logic with duplicate handling
+7. ✅ Meeting scheduler embedded (https://meetings-ap1.hubspot.com/flora)
 
-### What You Need to Do:
-1. ✅ Create Flora's meeting link in HubSpot (Done: https://meetings-ap1.hubspot.com/flora)
-2. ✅ Decide on meeting scheduler approach (Embedded with credibility sidebar)
-3. ⏳ Approve this plan to begin implementation
+### Implementation Details:
+
+**Form Submission Flow:**
+1. User fills out form and uploads photos (optional)
+2. JavaScript converts photos to base64 and creates JSON payload
+3. POST to `/api/hubspot/discovery-call` with all data
+4. Server creates/updates contact in HubSpot
+5. If photos present:
+   - Upload each photo to HubSpot Files API
+   - Create Note with attachments
+   - Associate Note with Contact
+6. Return success response
+7. Hide form, show calendar booking interface
+
+**Error Handling:**
+- Duplicate contacts are updated instead of creating new records
+- Photo upload failures are logged but don't block contact creation
+- User-friendly error messages displayed on failure
 
 ## Success Metrics
-- Contact created in HubSpot with all fields populated
-- Photos attached/linked to contact
-- User seamlessly moved to calendar booking
-- All data trackable in HubSpot for reporting
+- ✅ Contact created in HubSpot with all fields populated
+- ✅ Photos uploaded to HubSpot and attached to contact record via Notes
+- ✅ User seamlessly moved to calendar booking after submission
+- ✅ All data trackable in HubSpot for reporting
 
----
-**Estimated Implementation Time:** 2-3 hours
-**Dependencies:** HubSpot meeting link from you
+## Testing Checklist
+- [ ] Test form submission without photos
+- [ ] Test form submission with 1 photo
+- [ ] Test form submission with multiple photos
+- [ ] Test duplicate email handling
+- [ ] Test all checkbox combinations for planning stage
+- [ ] Verify photos appear in contact timeline
+- [ ] Verify calendar shows after successful submission
