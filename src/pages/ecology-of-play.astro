@@ -3,12 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="The Ecology of Play - Wearthy" description="Discover the ecology of play: unstructured time, freedom to make choices, and environments full of possibilities. Learn how to raise resilient children in a fear-based world.">
-	<header class="header compact-header" role="banner">
+	<header class="header medium-hero" role="banner">
+		<div class="hero-overlay"></div>
 		<div class="container">
 			<div class="header-content">
-				<a href="/" class="logo-link">
-					<img src="/wearthy-logo.png" alt="Wearthy" class="logo-image" />
-				</a>
+				<div class="logo-container">
+					<a href="/" class="logo-link">
+						<img src="/wearthy-logo.png" alt="Wearthy" class="logo-image" />
+					</a>
+				</div>
+				<h1 class="hero-title">The Ecology of Play</h1>
+				<p class="hero-subtitle">Raising Resilient Children in a Fear-Based World</p>
 			</div>
 		</div>
 	</header>
@@ -18,8 +23,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 			<!-- Value Proposition Above Video -->
 			<section class="intro-section">
-				<h1 class="page-title">The Ecology of Play</h1>
-				<p class="page-subtitle">Raising Resilient Children in a Fear-Based World</p>
 
 				<div class="value-proposition">
 					<h2 class="value-title">In this 15-minute TEDx talk, you'll discover:</h2>
@@ -121,17 +124,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-	.compact-header {
-		background: white;
-		padding: 20px 0;
-		border-bottom: 1px solid #e8dcc6;
-		position: sticky;
-		top: 0;
-		z-index: 100;
+	.medium-hero {
+		background: url('/AllSaints/optimized/AllSaintsCover.jpg') center/cover no-repeat;
+		min-height: 280px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		color: white;
+		padding: 50px 0;
 	}
 
-	.header-content {
-		text-align: center;
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.7), rgba(139, 119, 101, 0.6));
+		backdrop-filter: blur(2px);
+		-webkit-backdrop-filter: blur(2px);
+		z-index: 1;
+	}
+
+	.medium-hero .container {
+		position: relative;
+		z-index: 2;
+	}
+
+	.logo-container {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 25px;
 	}
 
 	.logo-link {
@@ -140,33 +163,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.logo-link:hover {
-		opacity: 0.8;
+		transform: translateY(-2px);
+		opacity: 0.9;
 	}
 
 	.logo-image {
-		height: 50px;
+		height: 70px;
 		width: auto;
 		display: block;
+		filter: brightness(0) invert(1);
+		drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 	}
 
-	.intro-section {
+	.header-content {
 		text-align: center;
-		padding: 40px 0 30px;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 
-	.page-title {
+	.hero-title {
 		font-size: 3rem;
 		font-weight: 400;
 		margin-bottom: 15px;
-		color: #5a4a3a;
+		line-height: 1.2;
 		font-family: 'Georgia', serif;
+		color: white;
+		text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 	}
 
-	.page-subtitle {
-		font-size: 1.3rem;
-		color: #8b7765;
+	.hero-subtitle {
+		font-size: 1.2rem;
+		margin-bottom: 0;
+		color: rgba(255, 255, 255, 0.95);
+		line-height: 1.6;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 		font-style: italic;
-		margin-bottom: 40px;
+	}
+
+	.intro-section {
+		padding: 50px 0 30px;
 	}
 
 	.value-proposition {
@@ -442,12 +477,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	@media (max-width: 768px) {
-		.page-title {
+		.medium-hero {
+			min-height: 240px;
+			padding: 35px 0;
+		}
+
+		.logo-image {
+			height: 50px;
+		}
+
+		.hero-title {
 			font-size: 2.2rem;
 		}
 
-		.page-subtitle {
-			font-size: 1.1rem;
+		.hero-subtitle {
+			font-size: 1.05rem;
 		}
 
 		.value-proposition {
