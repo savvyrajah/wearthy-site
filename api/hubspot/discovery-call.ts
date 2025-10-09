@@ -117,6 +117,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
+    // Debug: Log first/last few characters of API key (never log full key!)
+    console.log('API Key check:', {
+      hasKey: !!HUBSPOT_API_KEY,
+      keyPrefix: HUBSPOT_API_KEY?.substring(0, 7),
+      keySuffix: HUBSPOT_API_KEY?.substring(HUBSPOT_API_KEY.length - 4),
+      keyLength: HUBSPOT_API_KEY?.length
+    });
+
     const formData = req.body;
 
     // Extract and split name
@@ -161,9 +169,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     };
 
     console.log('Creating contact with email:', email);
+    console.log('Sending to URL:', `${HUBSPOT_API_URL}/crm/v3/objects/contacts`);
+    console.log('Payload keys:', Object.keys(contactPayload.properties));
 
     // Create or update contact in HubSpot
-    const hubspotResponse = await fetch(`${HUBSPOT_API_URL}/crm/v3/contacts`, {
+    const hubspotResponse = await fetch(`${HUBSPOT_API_URL}/crm/v3/objects/contacts`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
