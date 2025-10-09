@@ -2,27 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="The Three Pillars of Play - Wearthy" description="Discover the ecology of play: unstructured time, freedom to make choices, and environments full of possibilities. Learn how to raise resilient children in a fear-based world.">
-	<header class="header pillars-header">
+<BaseLayout title="The Ecology of Play - Wearthy" description="Discover the ecology of play: unstructured time, freedom to make choices, and environments full of possibilities. Learn how to raise resilient children in a fear-based world.">
+	<header class="header pillars-header" role="banner">
+		<div class="hero-overlay"></div>
 		<div class="container">
 			<div class="header-content">
 				<div class="logo-container">
-					<div class="logo-circle" aria-hidden="true"></div>
-					<a href="/" class="logo">Wearthy</a>
+					<a href="/" class="logo-link">
+						<img src="/wearthy-logo.png" alt="Wearthy" class="logo-image" />
+					</a>
 				</div>
+				<h1 class="hero-title">The Ecology of Play</h1>
+				<p class="hero-subtitle">Raising Resilient Children in a Fear-Based World</p>
 			</div>
 		</div>
 	</header>
 
 	<main class="pillars-main">
-		<section class="hero-section">
-			<div class="container">
-				<div class="hero-content">
-					<h1 class="main-title">Raising Resilient Children in a Fear-Based World</h1>
-					<p class="subtitle">The Three Pillars of Play: An Ecology for Human Flourishing</p>
-				</div>
-			</div>
-		</section>
 
 		<div class="container content-container">
 			<section class="video-section">
@@ -30,7 +26,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<iframe
 						width="100%"
 						height="100%"
-						src="https://www.youtube.com/embed/8cpTDz_-1ls"
+						src="https://www.youtube.com/embed/8cpTDz_-1ls?modestbranding=1&rel=0&showinfo=0"
 						title="How to raise resilient children in a fear-based world | Lukas Ritson | TEDxUQ"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -42,169 +38,64 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</section>
 
-			<section class="seed-metaphor">
-				<div class="metaphor-content">
-					<h2>What does a seed need to grow?</h2>
-					<div class="elements-grid">
-						<div class="element">Sun</div>
-						<div class="element">Soil</div>
-						<div class="element">Water</div>
-					</div>
-					<p class="lead-text">
-						Remove any one of these, and the seed withers.
-					</p>
-					<p class="body-text">
-						Children are no different. They need their own ecology of play—three essential elements that,
-						when combined, create the conditions for human flourishing.
-					</p>
-				</div>
-			</section>
 
 			<section class="pillars-section">
-				<h2 class="section-title">The Three Pillars</h2>
+				<h2 class="section-title">The Ecology of Play</h2>
+				<p class="intro-text">
+					Children need their own ecology of play—three essential elements that, when combined, create the conditions for human flourishing.
+				</p>
 
-				<div class="pillar-detailed">
-					<div class="pillar-number">1</div>
-					<div class="pillar-content">
+				<div class="pillars-grid">
+					<div class="pillar">
+						<div class="pillar-icon">1</div>
 						<h3>Unstructured Time</h3>
-						<p class="pillar-description">
-							Not every moment needs to be scheduled, managed, or optimized. Children need time to simply be.
-						</p>
-						<p class="pillar-explanation">
-							In our modern world, we've filled every gap in our children's days with activities, lessons,
-							and supervision. But it's in the unstructured moments—the boring afternoons, the quiet mornings,
-							the spaces between events—where creativity emerges and self-direction develops.
-						</p>
+						<p>Spaces that allow children to simply be, without every moment managed or optimized. Children need time to explore, discover, and create their own play experiences.</p>
 					</div>
-				</div>
 
-				<div class="pillar-detailed">
-					<div class="pillar-number">2</div>
-					<div class="pillar-content">
-						<h3>Freedom to Make Choices</h3>
-						<p class="pillar-description">
-							Even if those choices lead to failure. Especially if they lead to failure.
-						</p>
-						<p class="pillar-explanation">
-							When children make their own choices in play, they learn to assess risk, make decisions,
-							and live with consequences. These experiences build judgment and confidence in ways that
-							carefully managed activities never can. The freedom to fail is the freedom to learn.
-						</p>
+					<div class="pillar">
+						<div class="pillar-icon">2</div>
+						<h3>Freedom to Choose</h3>
+						<p>Environments that support independent decision-making, even if choices lead to failure. This autonomy builds confidence and resilience.</p>
 					</div>
-				</div>
 
-				<div class="pillar-detailed">
-					<div class="pillar-number">3</div>
-					<div class="pillar-content">
-						<h3>Environments Full of Possibilities</h3>
-						<p class="pillar-description">
-							Spaces that whisper "what if?" instead of dictating "you must."
-						</p>
-						<p class="pillar-explanation">
-							The best play environments don't prescribe how they should be used. Instead, they offer
-							materials, textures, and challenges that invite exploration and imagination. A log isn't
-							just a log—it's a balance beam, a fortress wall, a rocket ship, whatever the child needs it to be.
-						</p>
+					<div class="pillar">
+						<div class="pillar-icon">3</div>
+						<h3>Endless Possibilities</h3>
+						<p>Spaces that whisper "what if?" instead of dictating "you must." Rich environments that inspire imagination and support diverse play types.</p>
 					</div>
 				</div>
 			</section>
 
-			<section class="insight-section">
-				<div class="insight-card">
-					<h2>From Protecting to Overprotecting</h2>
-					<p class="insight-text">
-						We've shifted from protecting our children to overprotecting them. We've created a fear-based
-						world where the very experiences that build resilience—challenge, risk, even disappointment—are
-						seen as threats to avoid rather than gifts to embrace.
-					</p>
-					<p class="insight-text">
-						But here's what I've learned from a decade of creating play spaces: when children overcome
-						challenges independently, they don't just build physical strength. They build something far
-						more valuable—a refuge of mastery that no one can take away.
-					</p>
-				</div>
-			</section>
-
-			<section class="mastery-section">
-				<h2>Building a Refuge of Mastery</h2>
-				<div class="mastery-grid">
-					<div class="mastery-card">
-						<h3>Physical Competence</h3>
-						<p>
-							When children climb, balance, and swing, they develop body awareness and coordination.
-							But more importantly, they learn to trust their own capabilities.
+			<section class="testimonial-section">
+				<div class="testimonial-card">
+					<div class="quote-icon">"</div>
+					<blockquote>
+						<p class="testimonial-text">
+							The new playground has been a fantastic addition to our school! One of the standout features is the giant slide, which has quickly become a favorite among the children. Its size and speed bring a real sense of excitement and joy to playtime.
 						</p>
-					</div>
-
-					<div class="mastery-card">
-						<h3>Emotional Resilience</h3>
-						<p>
-							Through play challenges, children experience setbacks in a safe context. They learn that
-							failure isn't final and that persistence pays off.
+						<p class="testimonial-text">
+							Equally popular is the physical challenge aspect of the playground. The climbing structures, balance elements, and obstacle-style features encourage students to test their strength, coordination, and confidence in a fun and safe environment. It's wonderful to see so many children engaged, active, and smiling as they explore the space.
 						</p>
-					</div>
-
-					<div class="mastery-card">
-						<h3>Social Skills</h3>
-						<p>
-							Unstructured play creates opportunities for negotiation, conflict resolution, and
-							cooperation—skills that can't be taught but must be discovered.
+						<p class="testimonial-text">
+							Overall, the playground has not only enhanced outdoor play but also supports physical development and social interaction. A big win for our school community!
 						</p>
+					</blockquote>
+					<div class="testimonial-author">
+						<p class="author-name">All Saints Anglican School</p>
+						<p class="author-title">Queensland</p>
 					</div>
-
-					<div class="mastery-card">
-						<h3>Self-Direction</h3>
-						<p>
-							When children have the freedom to choose their activities and challenges, they develop
-							agency and the ability to motivate themselves.
-						</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="question-section">
-				<div class="question-card">
-					<h2>How are you nurturing the ecology of play in your community?</h2>
-					<p>
-						Every school, every community, every family can create spaces and opportunities that support
-						these three pillars. It starts with understanding that children don't need more management—they
-						need more freedom within safe boundaries.
-					</p>
-					<p>
-						At Wearthy, we design playgrounds that embody these principles. We create environments where
-						children can explore, take appropriate risks, and develop the resilience they need to thrive
-						in an uncertain world.
-					</p>
 				</div>
 			</section>
 
 			<section class="cta-section">
-				<div class="cta-content">
-					<h2>Ready to Create a Play Environment That Builds Resilience?</h2>
+				<div class="cta-card">
+					<h2>Ready to Transform Your School's Play Environment?</h2>
 					<p>
-						Let's discuss how we can design a playground that supports the three pillars of play at your school.
+						Book a free discovery call to explore how we can create outdoor spaces where children grow, play, and become resilient. We'll share ideas tailored to your school's unique needs.
 					</p>
 					<div class="cta-buttons">
-						<a href="/contact" class="btn-primary btn-large">Book a Call</a>
-						<a href="/forms/discovery-call" class="btn-secondary">Book Discovery Call</a>
+						<a href="/forms/discovery-call" class="btn-primary">Book Discovery Call</a>
 					</div>
-				</div>
-			</section>
-
-			<section class="about-lukas">
-				<div class="about-content">
-					<h2>About Lukas Ritson</h2>
-					<p>
-						Lukas Ritson is the founder of Wearthy and a TEDx speaker passionate about creating play
-						environments that support human flourishing. With over a decade of experience designing
-						playgrounds for schools and communities, Lukas has transformed outdoor spaces for more than
-						16,000 children worldwide.
-					</p>
-					<p>
-						His work has been recognized with multiple awards, including three consecutive years as QLD
-						Play Spaces Winner (2021-2023) and the Australian Institute of Landscape Architects People's
-						Choice Award.
-					</p>
 				</div>
 			</section>
 		</div>
@@ -212,43 +103,86 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	<footer class="site-footer">
 		<div class="container">
-			<p>&copy; 2024 Wearthy. The playful beginnings of human flourishing.</p>
+			<p>&copy; 2025 Wearthy. The playful beginnings of human flourishing.</p>
 		</div>
 	</footer>
 </BaseLayout>
 
 <style>
 	.pillars-header {
-		padding: 40px 0;
-		background: linear-gradient(135deg, rgba(90, 74, 58, 0.95) 0%, rgba(139, 119, 101, 0.95) 100%);
+		background: url('/AllSaints/optimized/AllSaintsCover.jpg') center/cover no-repeat;
+		min-height: 500px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		color: white;
+		padding: 60px 0;
 	}
 
-	.logo {
-		color: #faf9f7;
-		text-decoration: none;
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, rgba(90, 74, 58, 0.65), rgba(139, 119, 101, 0.55));
+		backdrop-filter: blur(3px);
+		-webkit-backdrop-filter: blur(3px);
+		z-index: 1;
 	}
 
-	.hero-section {
-		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
-		padding: 80px 0;
+	.pillars-header .container {
+		position: relative;
+		z-index: 2;
+	}
+
+	.logo-container {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 40px;
+	}
+
+	.logo-link {
+		display: inline-block;
+		padding: 15px 35px;
+		transition: all 0.3s ease;
+	}
+
+	.logo-link:hover {
+		transform: translateY(-2px);
+		opacity: 0.9;
+	}
+
+	.logo-image {
+		height: 100px;
+		width: auto;
+		display: block;
+		filter: brightness(0) invert(1);
+		drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	}
+
+	.header-content {
 		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 
-	.main-title {
+	.hero-title {
 		font-size: 3.5rem;
 		font-weight: 400;
-		color: #5a4a3a;
 		margin-bottom: 20px;
 		line-height: 1.2;
 		font-family: 'Georgia', serif;
-		max-width: 900px;
-		margin-left: auto;
-		margin-right: auto;
+		color: white;
+		text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 	}
 
-	.subtitle {
+	.hero-subtitle {
 		font-size: 1.3rem;
-		color: #6b5b4b;
+		margin-bottom: 0;
+		color: rgba(255, 255, 255, 0.95);
+		line-height: 1.6;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 		font-style: italic;
 	}
 
@@ -277,6 +211,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		width: 100%;
 		height: 100%;
 		border-radius: 12px;
+		pointer-events: auto;
+	}
+
+	/* Hide YouTube branding and controls overlay */
+	.video-wrapper {
+		position: relative;
+	}
+
+	.video-wrapper::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 200px;
+		height: 60px;
+		background: transparent;
+		z-index: 1;
+		pointer-events: none;
 	}
 
 	.video-caption {
@@ -286,53 +238,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		font-size: 0.95rem;
 	}
 
-	.seed-metaphor {
-		background: linear-gradient(135deg, #fff8e7, #fdf4e3);
-		padding: 60px;
-		border-radius: 12px;
-		text-align: center;
-		margin-bottom: 80px;
-	}
-
-	.metaphor-content h2 {
-		font-size: 2.5rem;
-		color: #5a4a3a;
-		margin-bottom: 40px;
-		font-family: 'Georgia', serif;
-		font-weight: 400;
-	}
-
-	.elements-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 30px;
-		max-width: 600px;
-		margin: 0 auto 30px;
-	}
-
-	.element {
-		background: white;
-		padding: 30px;
-		border-radius: 8px;
-		font-size: 1.5rem;
-		color: #5a4a3a;
-		font-weight: 500;
-		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.1);
-	}
-
-	.lead-text {
-		font-size: 1.5rem;
-		color: #5a4a3a;
-		margin: 30px 0;
-		font-style: italic;
-	}
-
-	.body-text {
+	.intro-text {
 		font-size: 1.2rem;
 		color: #6b5b4b;
 		line-height: 1.8;
+		text-align: center;
 		max-width: 700px;
-		margin: 0 auto;
+		margin: 0 auto 50px;
 	}
 
 	.pillars-section {
@@ -340,184 +252,125 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.section-title {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		color: #5a4a3a;
 		text-align: center;
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 		font-family: 'Georgia', serif;
 		font-weight: 400;
 	}
 
-	.pillar-detailed {
+	.pillars-grid {
 		display: grid;
-		grid-template-columns: 100px 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		gap: 40px;
-		margin-bottom: 60px;
-		padding: 40px;
-		background: white;
-		border-radius: 12px;
-		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
-		border-left: 6px solid #b8a690;
+		margin-top: 50px;
 	}
 
-	.pillar-number {
-		width: 80px;
-		height: 80px;
+	.pillar {
+		text-align: center;
+		padding: 30px;
+	}
+
+	.pillar-icon {
+		width: 60px;
+		height: 60px;
 		background: linear-gradient(135deg, #b8a690, #8b7765);
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		color: white;
-		font-size: 2.5rem;
+		font-size: 1.8rem;
 		font-weight: bold;
+		margin: 0 auto 20px;
 	}
 
-	.pillar-content h3 {
-		font-size: 2rem;
+	.pillar h3 {
+		font-size: 1.4rem;
 		color: #5a4a3a;
 		margin-bottom: 15px;
 		font-family: 'Georgia', serif;
 		font-weight: 500;
 	}
 
-	.pillar-description {
-		font-size: 1.3rem;
-		color: #8b7765;
-		font-style: italic;
-		margin-bottom: 20px;
+	.pillar p {
+		color: #6b5b4b;
 		line-height: 1.6;
 	}
 
-	.pillar-explanation {
-		font-size: 1.1rem;
-		color: #6b5b4b;
-		line-height: 1.8;
-	}
-
-	.insight-section {
+	.testimonial-section {
 		margin-bottom: 80px;
 	}
 
-	.insight-card {
-		background: linear-gradient(135deg, #5a4a3a, #6b5b4b);
-		color: white;
-		padding: 60px;
-		border-radius: 12px;
-		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.2);
-	}
-
-	.insight-card h2 {
-		font-size: 2.5rem;
-		margin-bottom: 30px;
-		font-family: 'Georgia', serif;
-		font-weight: 400;
-	}
-
-	.insight-text {
-		font-size: 1.2rem;
-		line-height: 1.9;
-		margin-bottom: 25px;
-		opacity: 0.95;
-	}
-
-	.insight-text:last-child {
-		margin-bottom: 0;
-	}
-
-	.mastery-section {
-		margin-bottom: 80px;
-	}
-
-	.mastery-section h2 {
-		font-size: 2.5rem;
-		color: #5a4a3a;
-		text-align: center;
-		margin-bottom: 50px;
-		font-family: 'Georgia', serif;
-		font-weight: 400;
-	}
-
-	.mastery-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 30px;
-	}
-
-	.mastery-card {
+	.testimonial-card {
 		background: white;
-		padding: 35px;
-		border-radius: 8px;
-		border-left: 4px solid #b8a690;
-		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
-	}
-
-	.mastery-card h3 {
-		font-size: 1.5rem;
-		color: #5a4a3a;
-		margin-bottom: 15px;
-		font-family: 'Georgia', serif;
-		font-weight: 500;
-	}
-
-	.mastery-card p {
-		color: #6b5b4b;
-		line-height: 1.7;
-		font-size: 1.05rem;
-	}
-
-	.question-section {
-		margin-bottom: 80px;
-	}
-
-	.question-card {
-		background: linear-gradient(135deg, #f4e6d7, #ede1d1);
 		padding: 60px;
 		border-radius: 12px;
-		text-align: center;
+		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.08);
+		position: relative;
 	}
 
-	.question-card h2 {
-		font-size: 2.3rem;
-		color: #5a4a3a;
-		margin-bottom: 30px;
+	.quote-icon {
+		font-size: 6rem;
+		color: #e8dcc6;
+		line-height: 1;
+		position: absolute;
+		top: 20px;
+		left: 40px;
 		font-family: 'Georgia', serif;
-		font-weight: 400;
-		line-height: 1.4;
 	}
 
-	.question-card p {
-		font-size: 1.15rem;
-		color: #6b5b4b;
+	.testimonial-text {
+		font-size: 1.3rem;
 		line-height: 1.8;
-		margin-bottom: 20px;
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
+		color: #5a4a3a;
+		font-style: italic;
+		position: relative;
+		z-index: 2;
+		margin-bottom: 30px;
+	}
+
+	.testimonial-author {
+		text-align: right;
+		padding-top: 20px;
+		border-top: 2px solid #e8dcc6;
+	}
+
+	.author-name {
+		font-weight: 600;
+		color: #5a4a3a;
+		margin-bottom: 5px;
+	}
+
+	.author-title {
+		color: #8b7765;
+		font-size: 0.95rem;
 	}
 
 	.cta-section {
 		margin-bottom: 80px;
 	}
 
-	.cta-content {
+	.cta-card {
 		background: linear-gradient(135deg, #b8a690, #8b7765);
 		color: white;
-		padding: 70px;
+		padding: 60px;
 		border-radius: 12px;
 		text-align: center;
 	}
 
-	.cta-content h2 {
-		font-size: 2.8rem;
-		margin-bottom: 25px;
+	.cta-card h2 {
+		color: white;
+		font-size: 2.5rem;
+		margin-bottom: 20px;
 		font-family: 'Georgia', serif;
 		font-weight: 400;
 	}
 
-	.cta-content p {
-		font-size: 1.3rem;
-		margin-bottom: 40px;
+	.cta-card p {
+		font-size: 1.2rem;
+		margin-bottom: 35px;
 		opacity: 0.95;
 	}
 
@@ -528,51 +381,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		flex-wrap: wrap;
 	}
 
-	.btn-large {
-		padding: 18px 45px;
-		font-size: 1.2rem;
-	}
-
-	.btn-secondary {
+	.btn-primary {
 		background: white;
 		color: #5a4a3a;
-		padding: 16px 35px;
-		border-radius: 6px;
-		font-size: 1.1rem;
-		font-weight: 500;
+		padding: 18px 45px;
+		border-radius: 8px;
+		font-size: 1.2rem;
+		font-weight: 600;
 		text-decoration: none;
 		display: inline-block;
 		transition: all 0.3s ease;
 		font-family: 'Arial', sans-serif;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+		border: 2px solid white;
 	}
 
-	.btn-secondary:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 		background: #faf9f7;
-	}
-
-	.about-lukas {
-		background: white;
-		padding: 50px;
-		border-radius: 12px;
-		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.08);
-		margin-bottom: 60px;
-	}
-
-	.about-content h2 {
-		font-size: 2.5rem;
 		color: #5a4a3a;
-		margin-bottom: 30px;
-		font-family: 'Georgia', serif;
-		font-weight: 400;
-	}
-
-	.about-content p {
-		font-size: 1.1rem;
-		color: #6b5b4b;
-		line-height: 1.8;
-		margin-bottom: 20px;
 	}
 
 	.site-footer {
@@ -584,49 +412,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	@media (max-width: 768px) {
-		.main-title {
+		.pillars-header {
+			min-height: 400px;
+			padding: 40px 0;
+		}
+
+		.logo-image {
+			height: 80px;
+		}
+
+		.hero-title {
 			font-size: 2.5rem;
 		}
 
-		.subtitle {
+		.hero-subtitle {
 			font-size: 1.1rem;
 		}
 
-		.seed-metaphor {
+		.pillars-grid {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+
+		.testimonial-card {
 			padding: 40px 30px;
 		}
 
-		.metaphor-content h2 {
-			font-size: 2rem;
+		.quote-icon {
+			font-size: 4rem;
+			top: 10px;
+			left: 20px;
 		}
 
-		.elements-grid {
-			grid-template-columns: 1fr;
-			gap: 15px;
-		}
-
-		.pillar-detailed {
-			grid-template-columns: 1fr;
-			gap: 20px;
-			padding: 30px 25px;
-		}
-
-		.pillar-number {
-			margin: 0 auto;
-		}
-
-		.mastery-grid {
-			grid-template-columns: 1fr;
-		}
-
-		.insight-card,
-		.question-card,
-		.cta-content,
-		.about-lukas {
+		.cta-card {
 			padding: 40px 30px;
 		}
 
-		.cta-content h2 {
+		.cta-card h2 {
 			font-size: 2rem;
 		}
 
