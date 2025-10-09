@@ -261,7 +261,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						<h3 class="sidebar-title">Why Choose Wearthy?</h3>
 
 						<div class="credibility-item">
-							<div class="cred-icon">⭐</div>
+							<div class="cred-icon-circle">
+								<span class="icon-number">10</span>
+							</div>
 							<div class="cred-content">
 								<h4>10 Years Creating Play Environments</h4>
 								<p>Over a decade of experience designing nature-inspired playgrounds</p>
@@ -269,7 +271,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						</div>
 
 						<div class="credibility-item">
-							<div class="cred-icon">🏆</div>
+							<div class="cred-icon-circle">
+								<span class="icon-text">100+</span>
+							</div>
 							<div class="cred-content">
 								<h4>100+ Playgrounds Built</h4>
 								<p>16,000+ children impacted worldwide</p>
@@ -277,7 +281,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						</div>
 
 						<div class="credibility-item">
-							<div class="cred-icon">🥇</div>
+							<div class="cred-icon-circle">
+								<span class="icon-text">3x</span>
+							</div>
 							<div class="cred-content">
 								<h4>3x QLD Play Spaces Winner</h4>
 								<p>2021-2023 consecutive years</p>
@@ -287,13 +293,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 						<div class="testimonial-box">
 							<h4 class="testimonial-title">All Saints Anglican School</h4>
 							<p class="testimonial-text">
-								"The new playground has been a fantastic addition to our school! One of the standout features is the giant slide, which has quickly become a favorite among the children. Its size and speed bring a real sense of excitement and joy to playtime.
-							</p>
-							<p class="testimonial-text">
-								Equally popular is the physical challenge aspect of the playground. The climbing structures, balance elements, and obstacle-style features encourage students to test their strength, coordination, and confidence in a fun and safe environment. It's wonderful to see so many children engaged, active, and smiling as they explore the space.
-							</p>
-							<p class="testimonial-text">
-								Overall, the playground has not only enhanced outdoor play but also supports physical development and social interaction. A big win for our school community!"
+								"The new playground has been a fantastic addition to our school! The giant slide has quickly become a favorite, and the physical challenge elements encourage students to test their strength and confidence in a fun, safe environment. It's wonderful to see so many children engaged, active, and smiling."
 							</p>
 							<p class="testimonial-author">— All Saints Anglican School</p>
 						</div>
@@ -913,9 +913,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		border-bottom: none;
 	}
 
-	.cred-icon {
-		font-size: 2rem;
+	.cred-icon-circle {
+		width: 50px;
+		height: 50px;
+		background: linear-gradient(135deg, #b8a690, #8b7765);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		flex-shrink: 0;
+		box-shadow: 0 2px 8px rgba(90, 74, 58, 0.2);
+	}
+
+	.icon-number,
+	.icon-text {
+		color: white;
+		font-weight: 700;
+		font-size: 1.3rem;
+		font-family: 'Arial', sans-serif;
 	}
 
 	.cred-content h4 {
@@ -929,6 +944,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		font-size: 0.9rem;
 		color: #6b5b4b;
 		line-height: 1.5;
+	}
+
+	/* Hide HubSpot branding */
+	.meetings-iframe-container iframe {
+		border: none;
+	}
+
+	.meetings-iframe-container a[href*="hubspot"] {
+		display: none !important;
+	}
+
+	/* Additional CSS to hide HubSpot footer branding */
+	.calendar-embed::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 40px;
+		background: white;
+		z-index: 10;
+		pointer-events: none;
 	}
 
 	.testimonial-box {
