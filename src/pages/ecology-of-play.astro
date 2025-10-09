@@ -3,24 +3,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="The Ecology of Play - Wearthy" description="Discover the ecology of play: unstructured time, freedom to make choices, and environments full of possibilities. Learn how to raise resilient children in a fear-based world.">
-	<header class="header pillars-header" role="banner">
-		<div class="hero-overlay"></div>
+	<header class="header compact-header" role="banner">
 		<div class="container">
 			<div class="header-content">
-				<div class="logo-container">
-					<a href="/" class="logo-link">
-						<img src="/wearthy-logo.png" alt="Wearthy" class="logo-image" />
-					</a>
-				</div>
-				<h1 class="hero-title">The Ecology of Play</h1>
-				<p class="hero-subtitle">Raising Resilient Children in a Fear-Based World</p>
+				<a href="/" class="logo-link">
+					<img src="/wearthy-logo.png" alt="Wearthy" class="logo-image" />
+				</a>
 			</div>
 		</div>
 	</header>
 
 	<main class="pillars-main">
-
 		<div class="container content-container">
+
+			<!-- Value Proposition Above Video -->
+			<section class="intro-section">
+				<h1 class="page-title">The Ecology of Play</h1>
+				<p class="page-subtitle">Raising Resilient Children in a Fear-Based World</p>
+
+				<div class="value-proposition">
+					<h2 class="value-title">In this 15-minute TEDx talk, you'll discover:</h2>
+					<ul class="value-list">
+						<li><strong>Why protection can become over-protection</strong> — and the hidden cost to children's development</li>
+						<li><strong>The three essential elements</strong> children need to thrive (Time, Freedom, and Possibilities)</li>
+						<li><strong>How outdoor play creates resilient adults</strong> — backed by research on childhood development</li>
+						<li><strong>What you can do today</strong> as a parent, educator, or school leader to create better environments for children</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- Video Section -->
 			<section class="video-section">
 				<div class="video-wrapper">
 					<iframe
@@ -38,30 +50,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</section>
 
-
+			<!-- Three Pillars Explained -->
 			<section class="pillars-section">
-				<h2 class="section-title">The Ecology of Play</h2>
+				<h2 class="section-title">The Three Pillars of the Ecology of Play</h2>
 				<p class="intro-text">
-					Children need their own ecology of play—three essential elements that, when combined, create the conditions for human flourishing.
+					Just as a seed needs sun, soil, and water to grow, children need three essential elements to thrive and become resilient, independent adults.
 				</p>
 
 				<div class="pillars-grid">
 					<div class="pillar">
 						<div class="pillar-icon">1</div>
 						<h3>Unstructured Time</h3>
-						<p>Spaces that allow children to simply be, without every moment managed or optimized. Children need time to explore, discover, and create their own play experiences.</p>
+						<p>Children spending 4.5-7+ hours daily on screens need time to simply be—without every moment managed or optimized. Time to explore, discover, and create their own play experiences.</p>
 					</div>
 
 					<div class="pillar">
 						<div class="pillar-icon">2</div>
 						<h3>Freedom to Choose</h3>
-						<p>Environments that support independent decision-making, even if choices lead to failure. This autonomy builds confidence and resilience.</p>
+						<p>Independent decision-making builds confidence and resilience. Children need the freedom to make choices, even if those choices lead to failure—because that's where real learning happens.</p>
 					</div>
 
 					<div class="pillar">
 						<div class="pillar-icon">3</div>
 						<h3>Endless Possibilities</h3>
-						<p>Spaces that whisper "what if?" instead of dictating "you must." Rich environments that inspire imagination and support diverse play types.</p>
+						<p>Like a cardboard box that becomes a pirate ship, cave, or lemonade stand—children need environments that whisper "what if?" instead of dictating "you must."</p>
 					</div>
 				</div>
 			</section>
@@ -109,81 +121,99 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-	.pillars-header {
-		background: url('/AllSaints/optimized/AllSaintsCover.jpg') center/cover no-repeat;
-		min-height: 500px;
-		display: flex;
-		align-items: center;
-		position: relative;
-		color: white;
-		padding: 60px 0;
-	}
-
-	.hero-overlay {
-		position: absolute;
+	.compact-header {
+		background: white;
+		padding: 20px 0;
+		border-bottom: 1px solid #e8dcc6;
+		position: sticky;
 		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(135deg, rgba(90, 74, 58, 0.65), rgba(139, 119, 101, 0.55));
-		backdrop-filter: blur(3px);
-		-webkit-backdrop-filter: blur(3px);
-		z-index: 1;
-	}
-
-	.pillars-header .container {
-		position: relative;
-		z-index: 2;
-	}
-
-	.logo-container {
-		display: flex;
-		justify-content: center;
-		margin-bottom: 40px;
-	}
-
-	.logo-link {
-		display: inline-block;
-		padding: 15px 35px;
-		transition: all 0.3s ease;
-	}
-
-	.logo-link:hover {
-		transform: translateY(-2px);
-		opacity: 0.9;
-	}
-
-	.logo-image {
-		height: 100px;
-		width: auto;
-		display: block;
-		filter: brightness(0) invert(1);
-		drop-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		z-index: 100;
 	}
 
 	.header-content {
 		text-align: center;
-		max-width: 800px;
-		margin: 0 auto;
 	}
 
-	.hero-title {
-		font-size: 3.5rem;
+	.logo-link {
+		display: inline-block;
+		transition: all 0.3s ease;
+	}
+
+	.logo-link:hover {
+		opacity: 0.8;
+	}
+
+	.logo-image {
+		height: 50px;
+		width: auto;
+		display: block;
+	}
+
+	.intro-section {
+		text-align: center;
+		padding: 40px 0 30px;
+	}
+
+	.page-title {
+		font-size: 3rem;
 		font-weight: 400;
-		margin-bottom: 20px;
-		line-height: 1.2;
+		margin-bottom: 15px;
+		color: #5a4a3a;
 		font-family: 'Georgia', serif;
-		color: white;
-		text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 	}
 
-	.hero-subtitle {
+	.page-subtitle {
 		font-size: 1.3rem;
-		margin-bottom: 0;
-		color: rgba(255, 255, 255, 0.95);
-		line-height: 1.6;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		color: #8b7765;
 		font-style: italic;
+		margin-bottom: 40px;
+	}
+
+	.value-proposition {
+		background: linear-gradient(135deg, #fff8e7, #fdf4e3);
+		border-left: 4px solid #c17817;
+		padding: 35px 40px;
+		border-radius: 8px;
+		text-align: left;
+		margin-bottom: 50px;
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.value-title {
+		font-size: 1.5rem;
+		color: #5a4a3a;
+		margin-bottom: 20px;
+		font-family: 'Georgia', serif;
+		font-weight: 500;
+	}
+
+	.value-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.value-list li {
+		padding: 12px 0 12px 30px;
+		position: relative;
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: #6b5b4b;
+	}
+
+	.value-list li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: #c17817;
+		font-weight: bold;
+		font-size: 1.3rem;
+	}
+
+	.value-list li strong {
+		color: #5a4a3a;
 	}
 
 	.content-container {
@@ -412,21 +442,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	@media (max-width: 768px) {
-		.pillars-header {
-			min-height: 400px;
-			padding: 40px 0;
+		.page-title {
+			font-size: 2.2rem;
 		}
 
-		.logo-image {
-			height: 80px;
-		}
-
-		.hero-title {
-			font-size: 2.5rem;
-		}
-
-		.hero-subtitle {
+		.page-subtitle {
 			font-size: 1.1rem;
+		}
+
+		.value-proposition {
+			padding: 25px 20px;
+		}
+
+		.value-title {
+			font-size: 1.3rem;
+		}
+
+		.value-list li {
+			font-size: 1rem;
+			padding: 10px 0 10px 25px;
 		}
 
 		.pillars-grid {
