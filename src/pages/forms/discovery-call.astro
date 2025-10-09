@@ -303,94 +303,106 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		</div>
 	</main>
 
-	<script>
-		document.getElementById('appraisalForm')?.addEventListener('submit', async function(e) {
-			e.preventDefault();
+	<script is:inline>
+		document.addEventListener('DOMContentLoaded', function() {
+			let isSubmitting = false;
 
-			const form = this as HTMLFormElement;
-			const submitButton = form.querySelector('.submit-btn') as HTMLButtonElement;
-			const originalButtonText = submitButton.textContent;
+			document.getElementById('appraisalForm')?.addEventListener('submit', async function(e) {
+				e.preventDefault();
 
-			// Disable button and show loading state with spinner
-			submitButton.disabled = true;
-			submitButton.innerHTML = '<span class="spinner"></span> Submitting...';
-
-			try {
-				const formData = new FormData(form);
-
-				// Convert FormData to JSON object
-				const jsonData: Record<string, any> = {};
-				const photoFiles: File[] = [];
-
-				formData.forEach((value, key) => {
-					// Collect photo files separately
-					if (key === 'photos' && value instanceof File && value.size > 0) {
-						photoFiles.push(value);
-						return;
-					}
-
-					// Handle checkboxes (phase[])
-					if (key.endsWith('[]')) {
-						if (!jsonData[key]) {
-							jsonData[key] = [];
-						}
-						jsonData[key].push(value);
-					} else {
-						jsonData[key] = value;
-					}
-				});
-
-				// Convert photos to base64 if any were uploaded
-				if (photoFiles.length > 0) {
-					const photoPromises = photoFiles.map(file => {
-						return new Promise<string>((resolve, reject) => {
-							const reader = new FileReader();
-							reader.onload = () => resolve(reader.result as string);
-							reader.onerror = reject;
-							reader.readAsDataURL(file);
-						});
-					});
-
-					const photoBase64Array = await Promise.all(photoPromises);
-					jsonData.photos = photoBase64Array;
+				// Prevent multiple submissions
+				if (isSubmitting) {
+					return;
 				}
 
-				// Submit to HubSpot API
-				const response = await fetch('/api/hubspot/discovery-call', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(jsonData)
-				});
+				const form = this;
+				const submitButton = form.querySelector('.submit-btn');
+				const originalButtonText = submitButton.textContent;
 
-				const result = await response.json();
+				// Set submitting flag and disable button
+				isSubmitting = true;
+				submitButton.disabled = true;
+				submitButton.innerHTML = '<span class="spinner"></span> Submitting...';
 
-				if (result.success) {
-					// Hide the form section
-					const mainContent = document.querySelector('.main-content') as HTMLElement;
-					if (mainContent) {
-						mainContent.style.display = 'none';
+				try {
+					const formData = new FormData(form);
+
+					// Convert FormData to JSON object
+					const jsonData = {};
+					const photoFiles = [];
+
+					formData.forEach((value, key) => {
+						// Collect photo files separately
+						if (key === 'photos' && value instanceof File && value.size > 0) {
+							photoFiles.push(value);
+							return;
+						}
+
+						// Handle checkboxes (phase[])
+						if (key.endsWith('[]')) {
+							if (!jsonData[key]) {
+								jsonData[key] = [];
+							}
+							jsonData[key].push(value);
+						} else {
+							jsonData[key] = value;
+						}
+					});
+
+					// Convert photos to base64 if any were uploaded
+					if (photoFiles.length > 0) {
+						const photoPromises = photoFiles.map(file => {
+							return new Promise((resolve, reject) => {
+								const reader = new FileReader();
+								reader.onload = () => resolve(reader.result);
+								reader.onerror = reject;
+								reader.readAsDataURL(file);
+							});
+						});
+
+						const photoBase64Array = await Promise.all(photoPromises);
+						jsonData.photos = photoBase64Array;
 					}
 
-					// Show the calendar section
-					const calendarSection = document.getElementById('calendarSection');
-					if (calendarSection) {
-						calendarSection.style.display = 'block';
-						// Scroll to calendar
-						calendarSection.scrollIntoView({ behavior: 'smooth' });
+					// Submit to HubSpot API
+					const response = await fetch('/api/hubspot/discovery-call', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(jsonData)
+					});
+
+					const result = await response.json();
+
+					if (result.success) {
+						// Hide the form section
+						const mainContent = document.querySelector('.main-content');
+						if (mainContent) {
+							mainContent.style.display = 'none';
+						}
+
+						// Show the calendar section
+						const calendarSection = document.getElementById('calendarSection');
+						if (calendarSection) {
+							calendarSection.style.display = 'block';
+							// Scroll to calendar
+							calendarSection.scrollIntoView({ behavior: 'smooth' });
+						}
+					} else {
+						alert('There was an error submitting your request. Please try again or contact us directly at hello@wearthy.co');
+						isSubmitting = false;
+						submitButton.disabled = false;
+						submitButton.innerHTML = originalButtonText || 'Book Discovery Call';
 					}
-				} else {
+				} catch (error) {
+					console.error('Form submission error:', error);
 					alert('There was an error submitting your request. Please try again or contact us directly at hello@wearthy.co');
+					isSubmitting = false;
 					submitButton.disabled = false;
 					submitButton.innerHTML = originalButtonText || 'Book Discovery Call';
 				}
-			} catch (error) {
-				console.error('Form submission error:', error);
-				alert('There was an error submitting your request. Please try again or contact us directly at hello@wearthy.co');
-				submitButton.disabled = false;
-				submitButton.innerHTML = originalButtonText || 'Book Discovery Call';
-			}
+			});
 		});
 	</script>
 </BaseLayout>
@@ -981,23 +993,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		position: relative;
 		overflow: hidden;
 		min-height: 500px;
+		padding-bottom: 0;
 	}
 
 	.meetings-iframe-container iframe {
 		border: none;
-		margin-bottom: -80px !important;
-		min-height: 580px;
+		margin-bottom: -120px !important;
+		min-height: 620px;
 	}
 
-	.meetings-iframe-container a[href*="hubspot"] {
+	.meetings-iframe-container a[href*="hubspot"],
+	.meetings-iframe-container a[href*="HubSpot"] {
 		display: none !important;
 		visibility: hidden !important;
+		opacity: 0 !important;
 	}
 
 	/* Additional CSS to hide HubSpot footer branding */
 	.calendar-embed {
 		overflow: hidden;
 		position: relative;
+		padding-bottom: 20px;
 	}
 
 	.calendar-embed::after {
@@ -1006,9 +1022,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		bottom: 0;
 		left: 0;
 		right: 0;
-		height: 80px;
+		height: 120px;
 		background: white;
-		z-index: 10;
+		z-index: 999999;
+		pointer-events: none;
+	}
+
+	/* Additional layer to ensure branding is completely hidden */
+	.calendar-embed::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100px;
+		background: linear-gradient(to top, white 0%, white 70%, transparent 100%);
+		z-index: 999998;
 		pointer-events: none;
 	}
 
