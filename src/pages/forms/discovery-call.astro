@@ -203,7 +203,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					</fieldset>
 
 					<fieldset class="priority-questions">
-						<legend>Your planning stage (optional):</legend>
+						<div class="priority-heading">Your planning stage (optional):</div>
 						<div class="checkbox-group" role="group">
 							<div class="checkbox-item">
 								<input type="checkbox" id="exploring" name="phase[]" value="exploring">
@@ -787,16 +787,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		border-left: 4px solid #c17817;
 	}
 
-	.priority-questions legend {
+	.priority-heading {
 		color: #8b5a00;
 		margin-bottom: 18px;
 		font-size: 1rem;
 		font-family: 'Georgia', serif;
 		font-weight: 500;
-		padding: 0;
-		width: 100%;
-		float: none;
-		display: block;
 	}
 
 	.checkbox-group {
