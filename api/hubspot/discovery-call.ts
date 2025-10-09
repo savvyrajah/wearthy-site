@@ -185,6 +185,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     let contactId;
 
+    console.log('HubSpot response status:', hubspotResponse.status);
+
     if (hubspotResponse.status === 409) {
       // Contact already exists, update instead
       const errorData = await hubspotResponse.json();
@@ -202,6 +204,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         const updateData = await updateResponse.json();
         contactId = updateData.id;
+        console.log('Existing contact updated with ID:', contactId);
+
+        // Wait and update custom properties for existing contact too
+        console.log('Waiting 2 seconds before updating custom properties...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        console.log('Updating existing contact with custom properties');
+        const customPropsUpdate = await fetch(`${HUBSPOT_API_URL}/crm/v3/objects/contacts/${contactId}`, {
+          method: 'PATCH',
+          headers: {
+            'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            properties: {
+              wearthy_service_type: serviceType || '',
+              wearthy_student_count: studentCount || '',
+              wearthy_budget_range: budgetRange || '',
+              wearthy_age_group: ageGroup || '',
+              wearthy_planning_stage: planningStage || '',
+              message: additionalInfo || '',
+              wearthy_discovery_call_requested: 'true'
+            }
+          })
+        });
+
+        if (customPropsUpdate.ok) {
+          console.log('Custom properties updated for existing contact');
+        } else {
+          const updateError = await customPropsUpdate.text();
+          console.error('Failed to update custom properties for existing contact:', updateError);
+        }
       }
     } else if (hubspotResponse.ok) {
       const data = await hubspotResponse.json();
