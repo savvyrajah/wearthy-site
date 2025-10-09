@@ -68,7 +68,8 @@ async function createNoteWithAttachments(contactId: string, fileIds: string[]): 
     const notePayload = {
       properties: {
         hs_note_body: 'Discovery call photos submitted via website form',
-        hs_attachment_ids: fileIds.join(';')
+        hs_attachment_ids: fileIds.join(';'),
+        hs_timestamp: Date.now().toString()
       },
       associations: [
         {
