@@ -82,22 +82,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</section>
 
 			<section class="testimonial-section">
-				<div class="testimonial-card">
-					<div class="quote-icon">"</div>
-					<blockquote>
-						<p class="testimonial-text">
-							The new playground has been a fantastic addition to our school! One of the standout features is the giant slide, which has quickly become a favourite among the children. Its size and speed bring a real sense of excitement and joy to playtime.
-						</p>
-						<p class="testimonial-text">
-							Equally popular is the physical challenge aspect of the playground. The climbing structures, balance elements, and obstacle-style features encourage students to test their strength, coordination, and confidence in a fun and safe environment. It's wonderful to see so many children engaged, active, and smiling as they explore the space.
-						</p>
-						<p class="testimonial-text">
-							Overall, the playground has not only enhanced outdoor play but also supports physical development and social interaction. A big win for our school community!
-						</p>
-					</blockquote>
-					<div class="testimonial-author">
-						<p class="author-name">Bec Pearson</p>
-						<p class="author-title">Assistant Head of Junior School – Leading Learning<br>All Saints Anglican School, Queensland</p>
+				<div class="testimonial-grid">
+					<div class="testimonial-video">
+						<div class="video-wrapper">
+							<iframe
+								width="100%"
+								height="100%"
+								src="https://www.youtube.com/embed/Qb1E_PvdkOI?modestbranding=1&rel=0&showinfo=0"
+								title="Hillcrest Christian College - Wearthy Playground"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen>
+							</iframe>
+						</div>
+					</div>
+					<div class="testimonial-card">
+						<div class="quote-icon">"</div>
+						<blockquote>
+							<p class="testimonial-text">
+								What kids may have had in a whole forest, they've actually got in this small space. The outdoor classroom, the way in which they can work collaborating, the way in which they can design their own fun and adventures, the way in which they can do all of these different things in this space. It's just incredible.
+							</p>
+						</blockquote>
+						<div class="testimonial-author">
+							<p class="author-name">Jeff Davis</p>
+							<p class="author-title">Principal & Executive Head of College<br>Hillcrest Christian College</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -368,6 +377,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		margin-bottom: 80px;
 	}
 
+	.testimonial-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 40px;
+		align-items: center;
+	}
+
+	.testimonial-video .video-wrapper {
+		position: relative;
+		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		height: 0;
+		overflow: hidden;
+		border-radius: 12px;
+		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.15);
+	}
+
+	.testimonial-video .video-wrapper iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 12px;
+	}
+
 	.testimonial-card {
 		background: white;
 		padding: 60px;
@@ -508,6 +542,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 
 		.pillars-grid {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+
+		.testimonial-grid {
 			grid-template-columns: 1fr;
 			gap: 30px;
 		}
