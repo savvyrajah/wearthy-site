@@ -378,16 +378,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.testimonial-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 40px;
-		align-items: center;
-	}
-
-	.testimonial-video {
 		display: flex;
-		align-items: center;
-		padding: 60px 0;
+		flex-direction: column;
+		gap: 50px;
 	}
 
 	.testimonial-video .video-wrapper {
@@ -397,7 +390,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		overflow: hidden;
 		border-radius: 12px;
 		box-shadow: 0 8px 25px rgba(90, 74, 58, 0.15);
-		width: 100%;
 	}
 
 	.testimonial-video .video-wrapper iframe {
@@ -549,11 +541,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 
 		.pillars-grid {
-			grid-template-columns: 1fr;
-			gap: 30px;
-		}
-
-		.testimonial-grid {
 			grid-template-columns: 1fr;
 			gap: 30px;
 		}
