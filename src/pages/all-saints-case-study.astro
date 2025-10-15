@@ -72,7 +72,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<div class="quote-icon">"</div>
 					<blockquote>
 						<p class="testimonial-text">
-							The new playground has been a fantastic addition to our school! One of the standout features is the giant slide, which has quickly become a favorite among the children. Its size and speed bring a real sense of excitement and joy to playtime.
+							The new playground has been a fantastic addition to our school! One of the standout features is the giant slide, which has quickly become a favourite among the children. Its size and speed bring a real sense of excitement and joy to playtime.
 						</p>
 						<p class="testimonial-text">
 							Equally popular is the physical challenge aspect of the playground. The climbing structures, balance elements, and obstacle-style features encourage students to test their strength, coordination, and confidence in a fun and safe environment. It's wonderful to see so many children engaged, active, and smiling as they explore the space.
@@ -98,7 +98,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<div class="pillar">
 						<div class="pillar-icon">1</div>
 						<h3>Unstructured Time</h3>
-						<p>Spaces that allow children to simply be, without every moment managed or optimized. Children need time to explore, discover, and create their own play experiences.</p>
+						<p>Spaces that allow children to simply be, without every moment managed or optimised. Children need time to explore, discover, and create their own play experiences.</p>
 					</div>
 
 					<div class="pillar">
@@ -271,7 +271,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	.comparison-image {
 		width: 100%;
-		height: auto;
+		height: 400px;
+		object-fit: cover;
 		border-radius: 8px;
 		box-shadow: 0 4px 15px rgba(90, 74, 58, 0.15);
 		margin-bottom: 15px;
@@ -477,6 +478,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.pillars-grid {
 			grid-template-columns: 1fr;
 			gap: 30px;
+		}
+
+		.comparison-image {
+			height: 300px;
 		}
 
 		.gallery-image {
